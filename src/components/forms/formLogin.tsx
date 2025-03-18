@@ -34,7 +34,7 @@ export default function FormLogin({ funcAuth }: auth) {
                     </div>
                     <div className="flex justify-center">
                         <Button style={"w-full py-3 font-semibold text-xl text-gray-100 bg-indigo-500 hover:bg-indigo-600 rounded-lg"}>
-                            Login
+                            Sign in
                         </Button>
                     </div>
                 </form>
