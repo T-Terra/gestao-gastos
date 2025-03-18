@@ -1,7 +1,14 @@
+import FormLogin from "../components/forms/formLogin"
+
 export default function Login() {
+
+    function GetFormData(formData: FormData) {
+        const email = formData.get('email')
+        const password = formData.get('password')
+
+    }
+
     return (
-        <div>
-            <h1>Tela de Login</h1>
-        </div>
+        <FormLogin funcAuth={GetFormData}/>
     )
 }
