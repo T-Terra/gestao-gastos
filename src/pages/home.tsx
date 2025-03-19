@@ -1,0 +1,64 @@
+import { 
+    Banknote,
+    ChartNoAxesCombined,
+    ArrowDown,
+    CreditCard
+} from 'lucide-react'
+
+export default function Home() {
+    return (
+        <div className="h-screen w-screen bg-gray-900 p-30 text-gray-100">
+            <div>
+                <h1 className="font-semibold text-4xl my-6">
+                    Dashboard
+                </h1>
+            </div>
+            <div className="flex gap-5">
+                <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
+                    <div className="grid gap-1 p-5 text-2xl font-semibold">
+                        <label className="text-[15px] font-normal">Saldo Atual</label>
+                        <label>R$ 2.000,00</label>
+                    </div>
+                    <div className="px-8">
+                        <div className="bg-blue-500 rounded-full p-2">
+                            <Banknote size={30}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
+                    <div className="grid gap-1 p-5 text-2xl font-semibold">
+                        <label className="text-[15px] font-normal">Receitas</label>
+                        <label>R$ 1.500,00</label>
+                    </div>
+                    <div className="px-8">
+                        <div className="bg-emerald-500 rounded-full p-2">
+                            <ChartNoAxesCombined size={30}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
+                    <div className="grid gap-1 p-5 text-2xl font-semibold">
+                        <label className="text-[15px] font-normal">Despesas</label>
+                        <label>- R$ 1.000,00</label>
+                    </div>
+                    <div className="px-8">
+                        <div className="bg-red-500 rounded-full p-2">
+                            <ArrowDown size={30}/>
+                        </div>
+                    </div>
+                </div>
+                <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
+                    <div className="grid gap-1 p-5 text-2xl font-semibold">
+                        <label className="text-[15px] font-normal">Cartão de Crédito</label>
+                        <label>- R$ 500,00</label>
+                    </div>
+                    <div className="px-8">
+                        <div className="bg-emerald-800 rounded-full p-2">
+                            <CreditCard size={30}/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

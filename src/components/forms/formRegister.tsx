@@ -66,7 +66,7 @@ export function FormRegister({ funcSignup }: props) {
                         />
                     </div>
                     <div className="flex justify-center mb-3">
-                        <Button style={"w-full py-3 font-semibold text-xl text-gray-100 bg-indigo-500 hover:bg-indigo-600 rounded-lg"}>
+                        <Button type="submit" style={"w-full py-3 font-semibold text-xl text-gray-100 bg-indigo-500 hover:bg-indigo-600 rounded-lg"}>
                             Sign Up
                         </Button>
                     </div>
