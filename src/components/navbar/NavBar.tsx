@@ -16,7 +16,7 @@ export default function NavBar() {
             <div className="p-8 text-gray-100">
                 <div className="absolute mx-19 my-17">
                     <Button type="button" style="bg-indigo-500 hover:bg-indigo-400 w-[22px] h-[22px] rounded-4xl flex justify-center items-center">
-                        <ChevronRight/>
+                        <ChevronLeft/>
                     </Button>
                 </div>
                 <ul className="flex flex-col gap-8 justify-center items-center my-25">

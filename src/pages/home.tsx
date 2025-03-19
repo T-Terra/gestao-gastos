@@ -4,12 +4,13 @@ import {
     ArrowDown,
     CreditCard
 } from 'lucide-react'
+import Chart from '@/components/charts/Chart'
 
 export default function Home() {
     return (
-        <div className="h-screen w-screen bg-gray-900 p-30 text-gray-100">
+        <div className="h-screen w-screen bg-gray-900 p-30 text-gray-100 grid gap-6">
             <div>
-                <h1 className="font-semibold text-4xl my-6">
+                <h1 className="font-semibold text-4xl">
                     Dashboard
                 </h1>
             </div>
@@ -57,6 +58,14 @@ export default function Home() {
                             <CreditCard size={30}/>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="w-full flex gap-5">
+                <div>
+                    <Chart />
+                </div>
+                <div>
+                    <Chart />
                 </div>
             </div>
         </div>
