@@ -3,6 +3,7 @@ import Login from "../pages/login";
 import Register from "../pages/register";
 import Home from "../pages/home";
 import NavBar from "../components/navbar/NavBar";
+import Expenses from "@/pages/expenses";
 
 export const AppRoutes = () => {
     return (
@@ -12,6 +13,7 @@ export const AppRoutes = () => {
                 <Route path="/signup" element={<Register />} />
                 <Route element={<NavBar />}>
                     <Route path="/home" element={<Home />} />
+                    <Route path="/expenses" element={<Expenses />} />
                 </Route>
             </Routes>
         </BrowserRouter>
