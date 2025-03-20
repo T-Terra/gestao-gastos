@@ -60,12 +60,12 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            <div className="w-full flex gap-5">
-                <div>
-                    <Chart />
+            <div className="w-full flex gap-7">
+                <div className="w-[700px]">
+                    <Chart title="Despesas por Categoria" />
                 </div>
-                <div>
-                    <Chart />
+                <div className="w-[700px]">
+                    <Chart title="Receitas por Categoria" />
                 </div>
             </div>
         </div>
