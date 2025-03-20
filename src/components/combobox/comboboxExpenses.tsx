@@ -17,26 +17,22 @@ import { ChevronsUpDown, Check } from 'lucide-react'
 import { Button } from "../ui/button"
 import { useState } from "react"
    
-const frameworks = [
+const category = [
     {
-        value: "next.js",
-        label: "Next.js",
+        value: "Cartão de Crédito",
+        label: "Cartão de Crédito",
     },
     {
-        value: "sveltekit",
-        label: "SvelteKit",
+        value: "Internet",
+        label: "Internet",
     },
     {
-        value: "nuxt.js",
-        label: "Nuxt.js",
+        value: "Conta de Água",
+        label: "Conta de Água",
     },
     {
-        value: "remix",
-        label: "Remix",
-    },
-    {
-        value: "astro",
-        label: "Astro",
+        value: "Conta de Luz",
+        label: "Conta de Luz",
     },
 ]
 
@@ -52,24 +48,24 @@ export default function ComboBoxExpenses() {
                         variant="outline"
                         role="combobox"
                         aria-expanded={open}
-                        className="w-[180px] justify-between bg-gray-800 text-gray-100 hover:bg-gray-200"
+                        className="w-[180px] justify-between bg-gray-900 text-gray-100 hover:bg-gray-200"
                     >
                         {value
-                            ? frameworks.find((framework) => framework.value === value)?.label
+                            ? category.find((category) => category.value === value)?.label
                             : "Categoria..."}
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>
-                <PopoverContent className="w-[200px] bg-gray-800">
-                    <Command>
-                        <CommandInput placeholder="Cartão" />
+                <PopoverContent className="w-[200px] bg-gray-900 border-1 border-gray-700">
+                    <Command className="bg-gray-900 text-gray-100">
+                        <CommandInput placeholder="Internet" />
                         <CommandList>
                             <CommandEmpty>Categoria não encontrada</CommandEmpty>
-                            <CommandGroup>
-                                {frameworks.map((framework) => (
+                            <CommandGroup className="text-gray-100">
+                                {category.map((category) => (
                                     <CommandItem
-                                        key={framework.value}
-                                        value={framework.value}
+                                        key={category.value}
+                                        value={category.value}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
                                             setOpen(false)
@@ -78,10 +74,11 @@ export default function ComboBoxExpenses() {
                                         <Check
                                             className={cn(
                                             "mr-2 h-4 w-4",
-                                            value === framework.value ? "opacity-100" : "opacity-0"
+                                            "text-gray-100",
+                                            value === category.value ? "opacity-100" : "opacity-0"
                                             )}
                                         />
-                                        {framework.label}
+                                        {category.label}
                                     </CommandItem>
                                 ))}
                             </CommandGroup>

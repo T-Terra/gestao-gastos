@@ -9,7 +9,7 @@ import DialogExpenses from '@/components/dialog/dialogExpenses'
 
 export default function Expenses() {
     return (
-        <div className="bg-gray-900 px-30 py-10 h-screen w-full flex flex-col items-end">
+        <div className="bg-gray-900 px-30 py-16 h-screen w-full flex flex-col items-end">
             <div className="w-[600px]">
                 <User nameUser="Maria Silva" />
             </div>
