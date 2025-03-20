@@ -13,7 +13,7 @@ export default function Home() {
             <div className="w-[600px]">
                 <User nameUser="Maria Silva" />
             </div>
-            <div className="h-screen w-screen text-gray-100 grid gap-1">
+            <div className="h-screen w-screen text-gray-100 flex flex-col gap-8">
                 <div>
                     <h1 className="font-semibold text-4xl">
                         Dashboard

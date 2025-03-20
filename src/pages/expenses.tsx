@@ -5,6 +5,7 @@ import {
 } from 'lucide-react'
 import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
+import DialogExpenses from '@/components/dialog/dialogExpenses'
 
 export default function Expenses() {
     return (
@@ -13,10 +14,15 @@ export default function Expenses() {
                 <User nameUser="Maria Silva" />
             </div>
             <div className="h-screen w-screen text-gray-100 flex flex-col gap-8">
-                <div>
-                    <h1 className="font-semibold text-4xl">
-                        Despesas
-                    </h1>
+                <div  className="w-[1100px] flex justify-between">
+                    <div>
+                        <h1 className="font-semibold text-4xl">
+                            Despesas
+                        </h1>
+                    </div>
+                    <div>
+                        <DialogExpenses />
+                    </div>
                 </div>
                 <div className="flex gap-5">
                     <div className="h-[120px] w-auto lg:w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
