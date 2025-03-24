@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/T-Terra/gestao-gastos/compare/v0.1.2...v0.1.3) (2025-03-24)
+
+
+### Features
+
+* add save in local storage ([94db9d3](https://github.com/T-Terra/gestao-gastos/commit/94db9d3d01378bd192b82af82dc84807564f72cb))
+* chore in category ([b219232](https://github.com/T-Terra/gestao-gastos/commit/b219232abb3b4d9483232f49bde967e5218a5659))
+
 ### [0.1.2](https://github.com/T-Terra/gestao-gastos/compare/v0.1.1...v0.1.2) (2025-03-24)
 
 
