@@ -4,6 +4,7 @@ import Register from "../pages/register";
 import Home from "../pages/home";
 import NavBar from "../components/navbar/NavBar";
 import Expenses from "@/pages/expenses";
+import Category from "@/pages/category";
 
 export const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ export const AppRoutes = () => {
                 <Route element={<NavBar />}>
                     <Route path="/home" element={<Home />} />
                     <Route path="/expenses" element={<Expenses />} />
+                    <Route path="/category" element={<Category />} />
                 </Route>
             </Routes>
         </BrowserRouter>

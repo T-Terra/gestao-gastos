@@ -5,7 +5,8 @@ import {
     Plus,
     CreditCard,
     ChevronRight,
-    ChevronLeft
+    ChevronLeft,
+    List
 } from "lucide-react"
 import { Button } from "../buttons/button"
 import IconStyles from "../buttons/IconStyles"
@@ -56,6 +57,13 @@ export default function NavBar() {
                             <Link to="/expenses" replace>
                                 <IconStyles>
                                     <HandCoins size={27}/>
+                                </IconStyles>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/category" replace>
+                                <IconStyles>
+                                    <List size={27}/>
                                 </IconStyles>
                             </Link>
                         </li>
