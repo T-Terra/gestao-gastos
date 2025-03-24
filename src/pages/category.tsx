@@ -5,16 +5,9 @@ import DialogCategory from '@/components/dialog/dialogCategory'
 export default function Category() {
 
     const fakeData = [
-        { name: "Item 1", data: "2025-03-23", description: "Descrição do item 1" },
-        { name: "Item 2", data: "2025-03-22", description: "Descrição do item 2" },
-        { name: "Item 3", data: "2025-03-21", description: "Descrição do item 3" },
-        { name: "Item 4", data: "2025-03-20", description: "Descrição do item 4" },
-        { name: "Item 5", data: "2025-03-19", description: "Descrição do item 5" },
-        { name: "Item 6", data: "2025-03-18", description: "Descrição do item 6" },
-        { name: "Item 7", data: "2025-03-17", description: "Descrição do item 7" },
-        { name: "Item 8", data: "2025-03-16", description: "Descrição do item 8" },
-        { name: "Item 9", data: "2025-03-15", description: "Descrição do item 9" },
-        { name: "Item 10", data: "2025-03-14", description: "Descrição do item 10" }
+        { name: "Alimentação", data: "24/03/2025", description: "Comida e despesas com mercado" },
+        { name: "Lazer", data: "24/03/2025", description: "Cinema, Bar e diversão" },
+        { name: "Transporte", data: "24/03/2025", description: "Transporte como carro, gasolina ou ônibus" },
     ]
 
     return (
@@ -34,7 +27,7 @@ export default function Category() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'Data criação', 'Descrição']} dataTable={fakeData} />
+                <TableList col={['Nome da Categoria', 'Data Criação', 'Descrição']} dataTable={fakeData} />
             </div>
         </div>
     )

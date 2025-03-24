@@ -40,10 +40,10 @@ export default function DialogCategory() {
                         <div className="w-full flex flex-col gap-4">
                             <label>Nome da Categoria</label>
                             <div className="flex items-center gap-1">
-                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" id="categoryName" type="text" placeholder="Internet"/>
+                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" id="categoryName" type="text" placeholder="Lazer, Alimentação..."/>
                             </div>
                             <label>Descrição</label>
-                            <Textarea id="description" placeholder="Descrição da despesa"/>
+                            <Textarea id="description" placeholder="Descrição da categoria"/>
                         </div>
                         <div className="w-[100px] py-2">
                             <Button 

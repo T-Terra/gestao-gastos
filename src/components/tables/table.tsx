@@ -23,7 +23,7 @@ export default function TableList({ col, dataTable }: props) {
 
     const handleCell = (obj: obj, rowIndex: number) => {
         return (
-            <TableRow key={rowIndex}>
+            <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium">
                         {value}
@@ -35,11 +35,11 @@ export default function TableList({ col, dataTable }: props) {
     }
 
     return (
-        <div className="w-[1100px] text-gray-100 bg-gray-800 p-5 rounded-3xl shadow-lg">
+        <div className="w-[1100px] text-gray-100 bg-gray-800 p-4 rounded-2xl shadow-lg">
             <Table>
                 <TableCaption></TableCaption>
                 <TableHeader>
-                    <TableRow>
+                    <TableRow className="border-none">
                         {col.map((item) => 
                             <TableHead className="w-[100px] text-gray-100">{item}</TableHead>
                         )}
