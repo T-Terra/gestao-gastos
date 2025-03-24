@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.2](https://github.com/T-Terra/gestao-gastos/compare/v0.1.1...v0.1.2) (2025-03-24)
+
+
+### Features
+
+* add new page category ([1436187](https://github.com/T-Terra/gestao-gastos/commit/14361870952e48888bde26c0d362cc3dcd476c7e))
+* add push tags in script ([bf9f8d3](https://github.com/T-Terra/gestao-gastos/commit/bf9f8d3f798dc18e650b34a20b5fdd71d4760030))
+* add yarn lock file ([a484bec](https://github.com/T-Terra/gestao-gastos/commit/a484bec8194cca4ddc07850d4ad4c94b157c5dd4))
+
 ### 0.1.1 (2025-03-24)
 
 
