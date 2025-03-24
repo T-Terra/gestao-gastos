@@ -10,7 +10,7 @@ import {
 
 type obj = {
     name: string
-    data: string
+    amount: string
     description: string
 }
 

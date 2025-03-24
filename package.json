@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "release": "standard-version && git push --tags"
+    "release": "standard-version && git push --follow-tags origin HEAD"
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.3",

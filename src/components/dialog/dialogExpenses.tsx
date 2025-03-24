@@ -16,7 +16,24 @@ import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 
 
+type expenseObj = {
+    name: string
+    amount: string
+    description: string
+}
+
 export default function DialogExpenses() {
+
+    const saveData = (expense: expenseObj) => {
+        localStorage.setItem('expense', JSON.stringify(expense))
+    }
+
+    const getDataForm = (formData: FormData) => {
+        const expense = Object.fromEntries(formData.entries()) as expenseObj
+
+        saveData(expense)
+    }
+
     return (
         <div>
             <Dialog>
@@ -38,28 +55,33 @@ export default function DialogExpenses() {
                             Adiciona uma nova despesa
                         </DialogDescription>
                     </DialogHeader>
-                    <div className="flex flex-col gap-10 items-end">
-                        <div className="w-full flex flex-col gap-4">
-                            <label>Valor</label>
-                            <div className="flex items-center gap-1">
-                                <span className="font-semibold">R$</span>
-                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" id="amount" type="number" placeholder="R$100,00"/>
+                    <form action={getDataForm}>
+                        <div className="flex flex-col gap-10 items-end">
+                            <div className="w-full flex flex-col gap-4">
+                                <label>Nome da Despesa</label>
+                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="name" type="text" placeholder="Internet, Conta de Luz..."/>
+
+                                <label>Valor da Despesa</label>
+                                <div className="flex items-center gap-1">
+                                    <span className="font-semibold">R$</span>
+                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" type="number" placeholder="R$100,00"/>
+                                </div>
+                                <label>Descrição</label>
+                                <Textarea name="description" placeholder="Descrição da despesa"/>
+                                <label>Categoria</label>
+                                <ComboBoxExpenses />
                             </div>
-                            <label>Descrição</label>
-                            <Textarea id="description" placeholder="Descrição da despesa"/>
-                            <label>Categoria</label>
-                            <ComboBoxExpenses />
+                            <div className="w-[100px] py-2">
+                                <Button 
+                                    style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
+                                    type="submit"
+                                >
+                                    <Plus />
+                                    Salvar
+                                </Button>
+                            </div>
                         </div>
-                        <div className="w-[100px] py-2">
-                            <Button 
-                                style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
-                                type="button"
-                            >
-                                <Plus />
-                                Salvar
-                            </Button>
-                        </div>
-                    </div>
+                    </form>
                 </DialogContent>
             </Dialog>
         </div>

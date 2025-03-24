@@ -6,21 +6,30 @@ import {
 import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
+import { useEffect, useState } from 'react'
+
+type expenseObj = {
+    name: string
+    amount: string
+    description: string
+}
 
 export default function Expenses() {
+    const [dataTable, setDataTable] = useState<expenseObj[]>([])
 
-    const fakeData = [
-        { name: "Item 1", data: "2025-03-23", description: "Descrição do item 1", amount: "R$1.500,00" },
-        { name: "Item 2", data: "2025-03-22", description: "Descrição do item 2", amount: "R$1.500,00" },
-        { name: "Item 3", data: "2025-03-21", description: "Descrição do item 3", amount: "R$1.500,00" },
-        { name: "Item 4", data: "2025-03-20", description: "Descrição do item 4", amount: "R$1.500,00" },
-        { name: "Item 5", data: "2025-03-19", description: "Descrição do item 5", amount: "R$1.500,00" },
-        { name: "Item 6", data: "2025-03-18", description: "Descrição do item 6", amount: "R$1.500,00" },
-        { name: "Item 7", data: "2025-03-17", description: "Descrição do item 7", amount: "R$1.500,00" },
-        { name: "Item 8", data: "2025-03-16", description: "Descrição do item 8", amount: "R$1.500,00" },
-        { name: "Item 9", data: "2025-03-15", description: "Descrição do item 9", amount: "R$1.500,00" },
-        { name: "Item 10", data: "2025-03-14", description: "Descrição do item 10", amount: "R$1.500,00" }
-    ]
+    useEffect(() => {
+        const getData = (): expenseObj | null => {
+            const data = localStorage.getItem('expense') as string
+            const IsData: expenseObj | null = data ? JSON.parse(data) : null
+            return IsData
+        }
+
+        const obj = getData()
+
+        if(obj) {
+            setDataTable([obj])
+        }
+    }, [])
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
@@ -74,7 +83,7 @@ export default function Expenses() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'Data criação','Descrição', 'valor']} dataTable={fakeData}/>
+                <TableList col={['Nome', 'valor','Descrição', 'Data criação']} dataTable={dataTable}/>
             </div>
         </div>
     )
