@@ -17,23 +17,29 @@ import { Input } from "../ui/input"
 import { useState } from "react"
 
 
-type expenseObj = {
+type ExpenseObj = {
     name: string
     amount: string
     description: string
 }
 
+type ArrayObj = {
+    objs: ExpenseObj[]
+}
+
 export default function DialogExpenses() {
     const [isOpen, setOpen] = useState(false)
 
-    const saveData = (expense: expenseObj) => {
+    const saveData = (expense: ArrayObj) => {
         localStorage.setItem('expense', JSON.stringify(expense))
     }
 
     const getDataForm = (formData: FormData) => {
-        const expense = Object.fromEntries(formData.entries()) as expenseObj
+        const expense = Object.fromEntries(formData.entries()) as ExpenseObj
 
-        saveData(expense)
+        const expenseArray: ArrayObj = { objs: [expense] };
+
+        saveData(expenseArray)
     }
 
     return (
