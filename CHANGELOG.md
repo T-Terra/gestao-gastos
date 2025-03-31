@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/T-Terra/gestao-gastos/compare/v0.1.3...v0.1.4) (2025-03-31)
+
+
+### Bug Fixes
+
+* close dialog post send data ([4548f83](https://github.com/T-Terra/gestao-gastos/commit/4548f8308e23a3f8fb8eff6493697cf096cbabcf))
+* sabe data with array objs ([7d29b90](https://github.com/T-Terra/gestao-gastos/commit/7d29b9057265536f88832568f7f4faa009da0852))
+
 ### [0.1.3](https://github.com/T-Terra/gestao-gastos/compare/v0.1.2...v0.1.3) (2025-03-24)
 
 
