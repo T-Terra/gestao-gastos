@@ -7,21 +7,16 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-
-type obj = {
-    name: string
-    amount: string
-    description: string
-}
+import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 
 type props = {
     col: string[]
-    dataTable: obj[]
+    dataTable: DataTableInterface[]
 }
 
 export default function TableList({ col, dataTable }: props) {
 
-    const handleCell = (obj: obj, rowIndex: number) => {
+    const handleCell = (obj: DataTableInterface, rowIndex: number) => {
         return (
             <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (

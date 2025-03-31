@@ -7,29 +7,20 @@ import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
 import { useEffect, useState } from 'react'
-
-type expenseObj = {
-    name: string
-    amount: string
-    description: string
-}
-
-type ArrayObj = {
-    objs: expenseObj[]
-}
+import { DataTableInterface } from '@/interfaces/DataTableInterfaces'
 
 export default function Expenses() {
-    const [dataTable, setDataTable] = useState<expenseObj[]>([])
+    const [dataTable, setDataTable] = useState<DataTableInterface[]>([])
 
     useEffect(() => {
-        const getData = (): expenseObj | null => {
+        const getData = (): DataTableInterface => {
             const data = localStorage.getItem('expense') as string
             return JSON.parse(data); 
         }
 
-        const obj: ArrayObj = getData()
+        const obj: DataTableInterface[] = getData()
         
-        setDataTable(obj["objs"])
+        setDataTable(obj)
     }, [])
 
     return (
@@ -45,7 +36,7 @@ export default function Expenses() {
                         </h1>
                     </div>
                     <div>
-                        <DialogExpenses />
+                        <DialogExpenses setState={setDataTable}/>
                     </div>
                 </div>
                 <div className="flex gap-5">

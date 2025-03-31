@@ -15,31 +15,29 @@ import ComboBoxExpenses from "../combobox/comboboxExpenses"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { useState } from "react"
+import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 
 
-type ExpenseObj = {
-    name: string
-    amount: string
-    description: string
-}
-
-type ArrayObj = {
-    objs: ExpenseObj[]
-}
-
-export default function DialogExpenses() {
+export default function DialogExpenses({ setState }: DataTableInterface[]) {
     const [isOpen, setOpen] = useState(false)
 
-    const saveData = (expense: ArrayObj) => {
-        localStorage.setItem('expense', JSON.stringify(expense))
+    const getData = (): DataTableInterface => {
+        const data = localStorage.getItem('expense') as string
+        return JSON.parse(data); 
+    }
+
+    const saveData = (expense: DataTableInterface) => {
+        const obj: DataTableInterface[] = getData()
+        const expenseArray: DataTableInterface[] = [...obj, expense]
+
+        localStorage.setItem('expense', JSON.stringify(expenseArray))
+        setState(expenseArray)
     }
 
     const getDataForm = (formData: FormData) => {
-        const expense = Object.fromEntries(formData.entries()) as ExpenseObj
+        const expense = Object.fromEntries(formData.entries()) as DataTableInterface
 
-        const expenseArray: ArrayObj = { objs: [expense] };
-
-        saveData(expenseArray)
+        saveData(expense)
     }
 
     return (
