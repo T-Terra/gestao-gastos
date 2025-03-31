@@ -14,6 +14,7 @@ import { Textarea } from "@/components/ui/textarea"
 import ComboBoxExpenses from "../combobox/comboboxExpenses"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
+import { useState } from "react"
 
 
 type expenseObj = {
@@ -23,6 +24,7 @@ type expenseObj = {
 }
 
 export default function DialogExpenses() {
+    const [isOpen, setOpen] = useState(false)
 
     const saveData = (expense: expenseObj) => {
         localStorage.setItem('expense', JSON.stringify(expense))
@@ -36,11 +38,12 @@ export default function DialogExpenses() {
 
     return (
         <div>
-            <Dialog>
+            <Dialog open={isOpen} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
                     <div className="flex">
                         <Button 
-                            style="bg-gray-800 p-4 rounded-3xl shadow-lg flex gap-1 hover:bg-gray-700" 
+                            style="bg-gray-800 p-4 rounded-3xl shadow-lg flex gap-1 hover:bg-gray-700"
+                            onClick={() => {setOpen(true)}}
                             type="button"
                         >
                             <Plus />
@@ -73,7 +76,8 @@ export default function DialogExpenses() {
                             </div>
                             <div className="w-[100px] py-2">
                                 <Button 
-                                    style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
+                                    style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700"
+                                    onClick={() => {setOpen(false)}}
                                     type="submit"
                                 >
                                     <Plus />
