@@ -14,21 +14,22 @@ type expenseObj = {
     description: string
 }
 
+type ArrayObj = {
+    objs: expenseObj[]
+}
+
 export default function Expenses() {
     const [dataTable, setDataTable] = useState<expenseObj[]>([])
 
     useEffect(() => {
         const getData = (): expenseObj | null => {
             const data = localStorage.getItem('expense') as string
-            const IsData: expenseObj | null = data ? JSON.parse(data) : null
-            return IsData
+            return JSON.parse(data); 
         }
 
-        const obj = getData()
-
-        if(obj) {
-            setDataTable([obj])
-        }
+        const obj: ArrayObj = getData()
+        
+        setDataTable(obj["objs"])
     }, [])
 
     return (
