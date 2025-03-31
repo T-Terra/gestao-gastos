@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/T-Terra/gestao-gastos/compare/v0.1.4...v0.1.5) (2025-03-31)
+
+
+### Features
+
+* use interfaces to types code ([7f9ff0f](https://github.com/T-Terra/gestao-gastos/commit/7f9ff0ff6a8c5035d29ecea98c8057480319cb82))
+
+
+### Bug Fixes
+
+* obj save data ([11992ac](https://github.com/T-Terra/gestao-gastos/commit/11992acdedf671888afe9ad0f919109e594d3e0d))
+
 ### [0.1.4](https://github.com/T-Terra/gestao-gastos/compare/v0.1.3...v0.1.4) (2025-03-31)
 
 
