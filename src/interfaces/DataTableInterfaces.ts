@@ -3,3 +3,7 @@ export interface DataTableInterface {
     amount: string
     description: string
 }
+
+export interface SetStateInterface {
+    setState: (dataArr: DataTableInterface[]) => void
+}

@@ -13,13 +13,13 @@ export default function Expenses() {
     const [dataTable, setDataTable] = useState<DataTableInterface[]>([])
 
     useEffect(() => {
-        const getData = (): DataTableInterface => {
+        const getData = (): DataTableInterface[] => {
             const data = localStorage.getItem('expense') as string
             return JSON.parse(data); 
         }
 
         const obj: DataTableInterface[] = getData()
-        
+
         setDataTable(obj)
     }, [])
 
