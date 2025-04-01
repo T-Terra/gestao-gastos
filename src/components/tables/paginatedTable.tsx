@@ -48,8 +48,8 @@ export default function PaginatedTable({ col, dataTable }: props) {
                 <TableCaption></TableCaption>
                 <TableHeader>
                     <TableRow className="border-none">
-                        {col.map((item) => 
-                            <TableHead className="w-[100px] text-gray-100">{item}</TableHead>
+                        {col.map((item, rowIndex) => 
+                            <TableHead key={rowIndex} className="w-[100px] text-gray-100">{item}</TableHead>
                         )}
                     </TableRow>
                 </TableHeader>
