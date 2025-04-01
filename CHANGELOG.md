@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/T-Terra/gestao-gastos/compare/v0.1.6...v0.1.7) (2025-04-01)
+
+
+### Features
+
+* add first save data in local storage ([ea42b3b](https://github.com/T-Terra/gestao-gastos/commit/ea42b3b4a588d0dcd8eca65d6f10613e2bc02a55))
+
+
+### Bug Fixes
+
+* add key in header table ([1472f0e](https://github.com/T-Terra/gestao-gastos/commit/1472f0e64bccb4564635b404671b4e580dc82a9e))
+
 ### [0.1.6](https://github.com/T-Terra/gestao-gastos/compare/v0.1.5...v0.1.6) (2025-04-01)
 
 
