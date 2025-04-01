@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.8](https://github.com/T-Terra/gestao-gastos/compare/v0.1.7...v0.1.8) (2025-04-01)
+
+
+### Features
+
+* add category interfaces UI ([b76b612](https://github.com/T-Terra/gestao-gastos/commit/b76b6128633d9164a18ee2c054d8508fbea37494))
+
+
+### Bug Fixes
+
+* add expense alert void fields ([0079846](https://github.com/T-Terra/gestao-gastos/commit/00798466a5cf90887e61d2474c7d621cb882276c))
+
 ### [0.1.7](https://github.com/T-Terra/gestao-gastos/compare/v0.1.6...v0.1.7) (2025-04-01)
 
 
