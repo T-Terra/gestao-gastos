@@ -27,11 +27,16 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
     }
 
     const saveData = (expense: DataTableInterface) => {
-        const obj: DataTableInterface[] = getData()
-        const expenseArray: DataTableInterface[] = [...obj, expense]
-
-        localStorage.setItem('expense', JSON.stringify(expenseArray))
-        setState(expenseArray)
+        if (expense.name === "" && expense.description == "") {
+            alert("Campos vazios não foi possível salvar")
+        } else {
+            
+            const obj: DataTableInterface[] = getData()
+            const expenseArray: DataTableInterface[] = [...obj, expense]
+    
+            localStorage.setItem('expense', JSON.stringify(expenseArray))
+            setState(expenseArray)
+        }
     }
 
     const getDataForm = (formData: FormData) => {
