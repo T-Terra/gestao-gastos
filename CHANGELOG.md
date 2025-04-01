@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/T-Terra/gestao-gastos/compare/v0.1.5...v0.1.6) (2025-04-01)
+
+
+### Features
+
+* add pagination table ([df76195](https://github.com/T-Terra/gestao-gastos/commit/df76195014e20c76b75dfbee5ef0b883d35877e3))
+
 ### [0.1.5](https://github.com/T-Terra/gestao-gastos/compare/v0.1.4...v0.1.5) (2025-03-31)
 
 
