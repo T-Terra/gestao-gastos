@@ -13,10 +13,11 @@ import {
     Minus
 } from 'lucide-react'
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 
 type props = {
     col: string[]
-    dataTable: DataTableInterface[]
+    dataTable: DataTableInterface[] | CategoryInterface[] | []
 }
 
 export default function PaginatedTable({ col, dataTable }: props) {
@@ -26,11 +27,11 @@ export default function PaginatedTable({ col, dataTable }: props) {
 
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = dataTable.slice(indexOfFirstItem, indexOfLastItem)
+    const currentItems = (dataTable || []).slice(indexOfFirstItem, indexOfLastItem)
 
-    const totalPages = Math.ceil(dataTable.length / itemsPerPage)
+    const totalPages = Math.ceil((dataTable || []).length / itemsPerPage)
 
-    const handleCell = (obj: DataTableInterface, rowIndex: number) => {
+    const handleCell = (obj: DataTableInterface | CategoryInterface, rowIndex: number) => {
         return (
             <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (

@@ -1,9 +1,10 @@
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import PaginatedTable from "./paginatedTable"
 
 type props = {
     col: string[]
-    dataTable: DataTableInterface[]
+    dataTable: DataTableInterface[] | CategoryInterface[] | []
 }
 
 export default function TableList({ col, dataTable }: props) {

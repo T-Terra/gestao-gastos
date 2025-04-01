@@ -1,14 +1,22 @@
 import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogCategory from '@/components/dialog/dialogCategory'
+import { useEffect, useState } from 'react'
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 
 export default function Category() {
+    const [dataTable, setDataTatle] = useState<CategoryInterface[]>([])
 
-    const fakeData = [
-        { name: "Alimentação", data: "24/03/2025", description: "Comida e despesas com mercado" },
-        { name: "Lazer", data: "24/03/2025", description: "Cinema, Bar e diversão" },
-        { name: "Transporte", data: "24/03/2025", description: "Transporte como carro, gasolina ou ônibus" },
-    ]
+   useEffect(() => {
+        const getData = (): CategoryInterface[] => {
+            const data = localStorage.getItem("category") as string
+            return JSON.parse(data)
+        }
+
+        const categoryObjs: CategoryInterface[] = getData()
+
+        setDataTatle(categoryObjs)
+   }, [])
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
@@ -23,11 +31,11 @@ export default function Category() {
                         </h1>
                     </div>
                     <div>
-                        <DialogCategory />
+                        <DialogCategory setState={setDataTatle}/>
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome da Categoria', 'Data Criação', 'Descrição']} dataTable={fakeData} />
+                <TableList col={['Nome da Categoria', 'Descrição', 'Data Criação']} dataTable={dataTable} />
             </div>
         </div>
     )

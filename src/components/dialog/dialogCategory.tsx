@@ -13,14 +13,29 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
-import { CategoryInterface } from "@/interfaces/CategoryInterface"
+import { CategoryInterface, SetStateInterface } from "@/interfaces/CategoryInterface"
+import { useState } from "react"
 
-export default function DialogCategory() {
-    const SaveData = (data: CategoryInterface) => {
-        localStorage.setItem("category", JSON.stringify(data))
+export default function DialogCategory({ setState }: SetStateInterface) {
+    const [isOpen, setOpen] = useState(false)
+
+    const getData = (): CategoryInterface[] => {
+        const data = localStorage.getItem('category') as string
+        return data !== null ? JSON.parse(data) : []
     }
 
-    const GetFormData = (formData: FormData) => {
+    const saveData = (data: CategoryInterface) => {
+        if (data.categoryName === "" && data.description === "") {
+            alert("Dados vazios não são salvos")
+        } else {
+            const Objs: CategoryInterface[] = getData()
+            const categoryArray: CategoryInterface[] = [...Objs, data]
+            localStorage.setItem("category", JSON.stringify(categoryArray))
+            setState(categoryArray)
+        }
+    }
+
+    const getFormData = (formData: FormData) => {
         const categoryName = formData.get('categoryName') as string
         const description = formData.get('description') as string
 
@@ -29,17 +44,18 @@ export default function DialogCategory() {
             "description": description
         }
 
-        SaveData(arrayObj)
+        saveData(arrayObj)
     }
 
     return (
         <div>
-            <Dialog>
+            <Dialog open={isOpen} onOpenChange={setOpen}>
                 <DialogTrigger asChild>
                     <div className="flex">
                         <Button 
                             style="bg-gray-800 p-4 rounded-3xl shadow-lg flex gap-1 hover:bg-gray-700" 
                             type="button"
+                            onClick={() => setOpen(true)}
                         >
                             <Plus />
                             Nova categoria
@@ -53,7 +69,7 @@ export default function DialogCategory() {
                             Adiciona uma nova categoria
                         </DialogDescription>
                     </DialogHeader>
-                    <form action={GetFormData}>
+                    <form action={getFormData}>
                         <div className="flex flex-col gap-10 items-end">
                             <div className="w-full flex flex-col gap-4">
                                 <label>Nome da Categoria</label>
@@ -67,6 +83,7 @@ export default function DialogCategory() {
                                 <Button 
                                     style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
                                     type="submit"
+                                    onClick={() => setOpen(false)}
                                 >
                                     <Plus />
                                     Salvar
