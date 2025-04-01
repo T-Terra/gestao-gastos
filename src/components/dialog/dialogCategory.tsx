@@ -13,8 +13,25 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 
 export default function DialogCategory() {
+    const SaveData = (data: CategoryInterface) => {
+        localStorage.setItem("category", JSON.stringify(data))
+    }
+
+    const GetFormData = (formData: FormData) => {
+        const categoryName = formData.get('categoryName') as string
+        const description = formData.get('description') as string
+
+        const arrayObj: CategoryInterface = {
+            "categoryName": categoryName,
+            "description": description
+        }
+
+        SaveData(arrayObj)
+    }
+
     return (
         <div>
             <Dialog>
@@ -36,25 +53,27 @@ export default function DialogCategory() {
                             Adiciona uma nova categoria
                         </DialogDescription>
                     </DialogHeader>
-                    <div className="flex flex-col gap-10 items-end">
-                        <div className="w-full flex flex-col gap-4">
-                            <label>Nome da Categoria</label>
-                            <div className="flex items-center gap-1">
-                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" id="categoryName" type="text" placeholder="Lazer, Alimentação..."/>
+                    <form action={GetFormData}>
+                        <div className="flex flex-col gap-10 items-end">
+                            <div className="w-full flex flex-col gap-4">
+                                <label>Nome da Categoria</label>
+                                <div className="flex items-center gap-1">
+                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="categoryName" type="text" placeholder="Lazer, Alimentação..."/>
+                                </div>
+                                <label>Descrição</label>
+                                <Textarea name="description" placeholder="Descrição da categoria"/>
                             </div>
-                            <label>Descrição</label>
-                            <Textarea id="description" placeholder="Descrição da categoria"/>
+                            <div className="w-[100px] py-2">
+                                <Button 
+                                    style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
+                                    type="submit"
+                                >
+                                    <Plus />
+                                    Salvar
+                                </Button>
+                            </div>
                         </div>
-                        <div className="w-[100px] py-2">
-                            <Button 
-                                style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700" 
-                                type="button"
-                            >
-                                <Plus />
-                                Salvar
-                            </Button>
-                        </div>
-                    </div>
+                    </form>
                 </DialogContent>
             </Dialog>
         </div>
