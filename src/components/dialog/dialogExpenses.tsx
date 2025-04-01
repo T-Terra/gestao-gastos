@@ -20,6 +20,7 @@ import { DataTableInterface, SetStateInterface } from "@/interfaces/DataTableInt
 
 export default function DialogExpenses({ setState }: SetStateInterface) {
     const [isOpen, setOpen] = useState(false)
+    const [category, setCategory] = useState("")
 
     const getData = (): DataTableInterface[] => {
         const data = localStorage.getItem('expense') as string
@@ -47,10 +48,15 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
         const expense: DataTableInterface = {
             "name": name,
             "amount": amount,
-            "description": description
+            "description": description,
+            "category": category
         }
 
         saveData(expense)
+    }
+
+    const getValueCategory = (value: string) => {
+        setCategory(value)
     }
 
     return (
@@ -89,7 +95,7 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
                                 <label>Descrição</label>
                                 <Textarea name="description" placeholder="Descrição da despesa"/>
                                 <label>Categoria</label>
-                                <ComboBoxExpenses />
+                                <ComboBoxExpenses setState={getValueCategory}/>
                             </div>
                             <div className="w-[100px] py-2">
                                 <Button 

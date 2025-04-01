@@ -11,34 +11,26 @@ Popover,
 PopoverContent,
 PopoverTrigger,
 } from "@/components/ui/popover"
-
+import { CategoryInterface, SetStateComboboxInterface } from "@/interfaces/CategoryInterface"
 import { cn } from "@/lib/utils"
 import { ChevronsUpDown, Check } from 'lucide-react'
 import { Button } from "../ui/button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
    
-const category = [
-    {
-        value: "Cartão de Crédito",
-        label: "Cartão de Crédito",
-    },
-    {
-        value: "Internet",
-        label: "Internet",
-    },
-    {
-        value: "Conta de Água",
-        label: "Conta de Água",
-    },
-    {
-        value: "Conta de Luz",
-        label: "Conta de Luz",
-    },
-]
 
-export default function ComboBoxExpenses() {
+export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface) {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
+    const [category, setCategory] = useState<CategoryInterface[]>([])
+
+    useEffect(() => {
+        const getData = (): CategoryInterface[] => {
+            const data = localStorage.getItem('category') as string
+            return data !== null ? JSON.parse(data) : []
+        }
+
+        setCategory(getData())
+    }, [])
 
     return (
         <div>
@@ -51,7 +43,7 @@ export default function ComboBoxExpenses() {
                         className="w-[180px] justify-between bg-gray-900 text-gray-100 hover:bg-gray-200"
                     >
                         {value
-                            ? category.find((category) => category.value === value)?.label
+                            ? category.find((category) => category.categoryName === value)?.categoryName
                             : "Categoria..."}
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
@@ -64,10 +56,11 @@ export default function ComboBoxExpenses() {
                             <CommandGroup className="text-gray-100">
                                 {category.map((category) => (
                                     <CommandItem
-                                        key={category.value}
-                                        value={category.value}
+                                        key={category.categoryName}
+                                        value={category.categoryName}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
+                                            setState(currentValue === value ? "" : currentValue)
                                             setOpen(false)
                                         }}
                                     >
@@ -75,10 +68,10 @@ export default function ComboBoxExpenses() {
                                             className={cn(
                                             "mr-2 h-4 w-4",
                                             "text-gray-100",
-                                            value === category.value ? "opacity-100" : "opacity-0"
+                                            value === category.categoryName ? "opacity-100" : "opacity-0"
                                             )}
                                         />
-                                        {category.label}
+                                        {category.categoryName}
                                     </CommandItem>
                                 ))}
                             </CommandGroup>
