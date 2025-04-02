@@ -45,6 +45,7 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
 
             localStorage.setItem('expense', JSON.stringify(expenseArray))
             setState(expenseArray)
+            setCategory("")
         }
     }
 
