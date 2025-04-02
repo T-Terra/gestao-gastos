@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
+import DialogDeleteExpenses from "../dialog/dialogDeleteExpense"
 
 type props = {
     col: string[]
@@ -42,8 +43,10 @@ export default function PaginatedTable({ col, dataTable }: props) {
                         {value || "-"}
                     </TableCell>
                 ))}
-                <TableCell key="trash" className="text-right">
-                    <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
+                <TableCell className="text-right">
+                    <DialogDeleteExpenses indexRow={rowIndex}>
+                        <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
+                    </DialogDeleteExpenses>
                 </TableCell>
             </TableRow>
         )

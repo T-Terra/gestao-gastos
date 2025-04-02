@@ -6,11 +6,12 @@ import {
 import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { DataTableInterface } from '@/interfaces/DataTableInterfaces'
+import { useExpenses } from '@/contexts/expensesContext'
 
 export default function Expenses() {
-    const [dataTable, setDataTable] = useState<DataTableInterface[]>([])
+    const { expenses, setExpenses } = useExpenses()
 
     useEffect(() => {
         const getData = (): DataTableInterface[] => {
@@ -20,7 +21,7 @@ export default function Expenses() {
 
         const obj: DataTableInterface[] = getData()
 
-        setDataTable(obj)
+        setExpenses(obj)
     }, [])
 
     return (
@@ -36,7 +37,7 @@ export default function Expenses() {
                         </h1>
                     </div>
                     <div>
-                        <DialogExpenses setState={setDataTable}/>
+                        <DialogExpenses setState={setExpenses}/>
                     </div>
                 </div>
                 <div className="flex gap-5">
@@ -75,7 +76,7 @@ export default function Expenses() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} dataTable={dataTable}/>
+                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} dataTable={expenses}/>
             </div>
         </div>
     )
