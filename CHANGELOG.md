@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.11](https://github.com/T-Terra/gestao-gastos/compare/v0.1.10...v0.1.11) (2025-04-02)
+
+
+### Features
+
+* add context api to share state ([0977f4f](https://github.com/T-Terra/gestao-gastos/commit/0977f4f3a47b0c331ff3dc648f95d517a3c72622))
+* add trash col ([67748e5](https://github.com/T-Terra/gestao-gastos/commit/67748e5dd0b0ddc1c99cf7f4e2b2cb53a1662f33))
+
+
+### Bug Fixes
+
+* reset category state ([ca2363a](https://github.com/T-Terra/gestao-gastos/commit/ca2363ae32e63465f399a954f0272ebaa1058c2c))
+
 ### [0.1.10](https://github.com/T-Terra/gestao-gastos/compare/v0.1.9...v0.1.10) (2025-04-02)
 
 
