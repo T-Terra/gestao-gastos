@@ -10,7 +10,8 @@ import {
 } from "@/components/ui/table"
 import { 
     Plus,
-    Minus
+    Minus,
+    Trash2Icon
 } from 'lucide-react'
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
@@ -41,6 +42,9 @@ export default function PaginatedTable({ col, dataTable }: props) {
                         {value}
                     </TableCell>
                 ))}
+                <TableCell>
+                    <Trash2Icon className="cursor-pointer text-red-400 hover:text-red-700" />
+                </TableCell>
             </TableRow>
         )
     }
