@@ -75,7 +75,7 @@ export default function Expenses() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação']} dataTable={dataTable}/>
+                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} dataTable={dataTable}/>
             </div>
         </div>
     )

@@ -39,11 +39,11 @@ export default function PaginatedTable({ col, dataTable }: props) {
             <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium">
-                        {value}
+                        {value || "-"}
                     </TableCell>
                 ))}
-                <TableCell>
-                    <Trash2Icon className="cursor-pointer text-red-400 hover:text-red-700" />
+                <TableCell key="trash" className="text-right">
+                    <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
                 </TableCell>
             </TableRow>
         )

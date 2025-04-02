@@ -34,8 +34,15 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
         } else {
             
             const obj: DataTableInterface[] = getData()
-            const expenseArray: DataTableInterface[] = [...obj, expense]
-    
+
+            let expenseArray: DataTableInterface[] = []
+
+            if (obj !== null) {
+                expenseArray = [...obj, expense]
+            } else {
+                expenseArray = [expense]
+            }
+
             localStorage.setItem('expense', JSON.stringify(expenseArray))
             setState(expenseArray)
         }
