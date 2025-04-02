@@ -25,9 +25,11 @@ export default function PaginatedTable({ col, dataTable }: props) {
     const itemsPerPage: number = 10
     const sizeIcons: number = 17
 
+    const desc = [...(dataTable || [])].reverse()
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
-    const currentItems = (dataTable || []).slice(indexOfFirstItem, indexOfLastItem)
+    const currentItems = (desc || [])
+    .slice(indexOfFirstItem, indexOfLastItem)
 
     const totalPages = Math.ceil((dataTable || []).length / itemsPerPage)
 
