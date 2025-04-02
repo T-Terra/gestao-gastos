@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.10](https://github.com/T-Terra/gestao-gastos/compare/v0.1.9...v0.1.10) (2025-04-02)
+
+
+### Features
+
+* add icon delete in table ([173b8fc](https://github.com/T-Terra/gestao-gastos/commit/173b8fcaf01d2708bc5b6e31a04e5a047afa48b9))
+* add utils folder to functions ([17e45f9](https://github.com/T-Terra/gestao-gastos/commit/17e45f974bb99741af847c6a89fad794ff86d3c7))
+* pagination order desc ([118bef1](https://github.com/T-Terra/gestao-gastos/commit/118bef1c880c0ed01faec7f71163f4a9605e3902))
+
 ### [0.1.9](https://github.com/T-Terra/gestao-gastos/compare/v0.1.8...v0.1.9) (2025-04-01)
 
 
