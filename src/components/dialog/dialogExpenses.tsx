@@ -16,6 +16,7 @@ import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { useState } from "react"
 import { DataTableInterface, SetStateInterface } from "@/interfaces/DataTableInterfaces"
+import { formatAmount } from "@/utils/formaters"
 
 
 export default function DialogExpenses({ setState }: SetStateInterface) {
@@ -43,11 +44,11 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
     const getDataForm = (formData: FormData) => {
         const name = formData.get("name") as string
         const amount = formData.get("amount") as string 
-        const description = formData.get("description") as string 
+        const description = formData.get("description") as string
 
         const expense: DataTableInterface = {
             "name": name,
-            "amount": amount,
+            "amount": formatAmount(amount),
             "description": description,
             "category": category
         }
