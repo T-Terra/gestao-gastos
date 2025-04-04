@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.12](https://github.com/T-Terra/gestao-gastos/compare/v0.1.11...v0.1.12) (2025-04-04)
+
+
+### Features
+
+* get list to api ([57f8944](https://github.com/T-Terra/gestao-gastos/commit/57f89445dd129c42835851924bcf2eecadc923a7))
+* improve delete dialog ([b1c91f5](https://github.com/T-Terra/gestao-gastos/commit/b1c91f52d7f1dfbf4f4fbdd3c38265beeae5b58a))
+* integrate api route add expense ([661692b](https://github.com/T-Terra/gestao-gastos/commit/661692bd68b7d2586eb8ce3d8b9c315f4f985368))
+
 ### [0.1.11](https://github.com/T-Terra/gestao-gastos/compare/v0.1.10...v0.1.11) (2025-04-02)
 
 
