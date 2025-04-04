@@ -16,8 +16,8 @@ import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { useState } from "react"
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
-import axios from "axios"
 import { useExpenses } from "@/contexts/expensesContext"
+import axios from "axios"
 
 
 export default function DialogExpenses() {

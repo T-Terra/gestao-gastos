@@ -9,8 +9,8 @@ import {
 
 import { Button } from '@/components/buttons/button'
 import { useState } from "react"
-import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { useExpenses } from "@/contexts/expensesContext"
+import axios from "axios"
 
 type props = {
     indexRow: number
@@ -20,22 +20,20 @@ type props = {
 export default function DialogDeleteExpenses({ indexRow, children }: props) {
     const [isOpen, setOpen] = useState(false)
     const { expenses, setExpenses } = useExpenses()
+    const apiUrl: string = import.meta.env.VITE_API_URL
 
-    const getData = (): DataTableInterface[] => {
-        const data = localStorage.getItem('expense') as string
-        return JSON.parse(data); 
-    }
+    const deleteData = async (index: number) => {
+        if (expenses !== null) {
+            const filterExpense = expenses.reverse().filter((expense, indexId) => indexId === index)
+            const expenseId = filterExpense[0]['id']
+            const response = await axios.delete(`${apiUrl}/delete/${expenseId}`)
 
-    const deleteData = (index: number) => {
-        let expenseArray: DataTableInterface[] = []
-        const obj: DataTableInterface[] = getData()
-
-        if (obj !== null) {
-            const newObj = obj.reverse().filter((item, indexId) => indexId !== index)
-            expenseArray = [...newObj.reverse()]
-            localStorage.setItem('expense', JSON.stringify(expenseArray))
+            if (response.status === 200) { 
+                // remove da listagem
+                const newObjList = expenses.filter((item, indexId) => indexId !== index).reverse()
+                setExpenses(newObjList)
+            }
             setOpen(false)
-            setExpenses(expenseArray)
         }
     }
 
