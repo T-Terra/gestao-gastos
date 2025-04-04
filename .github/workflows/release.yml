@@ -1,0 +1,50 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repositório
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Configurar usuário do GitHub
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions@github.com"
+          git remote set-url origin https://x-access-token:${{ secrets.TOKEN_REPO }}@github.com/T-Terra/gestao-gastos.git
+      
+      - name: Configurar GitHub CLI
+        run: gh auth login --with-token <<< "${{ secrets.TOKEN_REPO }}"
+
+      - name: Extrair changelog da tag
+        run: |
+          TAG_NAME=${GITHUB_REF#refs/tags/}
+
+          # Extrai o conteúdo entre o título da tag e o próximo título
+          awk "/## ${TAG_NAME}/,/^## /" CHANGELOG.md | sed '1d;$d' > temp_changelog.md
+
+          # Caso não tenha próximo título (última versão), tira só a primeira linha
+          if [ ! -s temp_changelog.md ]; then
+            awk "/## ${TAG_NAME}/,/^$/" CHANGELOG.md | sed '1d' > temp_changelog.md
+          fi
+
+          # Se continuar vazio, usa fallback
+          if [ ! -s temp_changelog.md ]; then
+            echo "Release ${TAG_NAME}" > temp_changelog.md
+          fi
+      
+      - name: Criar Release no GitHub
+        env:
+          TOKEN_REPO: ${{ secrets.TOKEN_REPO }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --title "Release ${{ github.ref_name }}" \
+            --notes-file temp_changelog.md
