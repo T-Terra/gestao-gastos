@@ -1,3 +1,5 @@
+import moment from "moment"
+
 export const formatAmount = (value: string, typeCurrency = "BRL", locale = "pt-BR") => {
     const valueNumber = parseInt(value)
 
@@ -7,4 +9,8 @@ export const formatAmount = (value: string, typeCurrency = "BRL", locale = "pt-B
     ).format(valueNumber)
 
     return valueFormatted.toString()
+}
+
+export const converData = (data: string) => {
+    return moment(data).format("DD/MM/YYYY HH:mm:ss")
 }
