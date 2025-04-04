@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.13](https://github.com/T-Terra/gestao-gastos/compare/v0.1.12...v0.1.13) (2025-04-04)
+
+
+### Features
+
+* add env example ([4f7f3b1](https://github.com/T-Terra/gestao-gastos/commit/4f7f3b170e3e32a2ae87e91b5e3eb5354a99828b))
+* add release workflow ([30c658f](https://github.com/T-Terra/gestao-gastos/commit/30c658fc6b047a51537e6fd426470cc9c197452b))
+
 ### [0.1.12](https://github.com/T-Terra/gestao-gastos/compare/v0.1.11...v0.1.12) (2025-04-04)
 
 
