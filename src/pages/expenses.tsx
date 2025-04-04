@@ -7,21 +7,21 @@ import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
 import { useEffect } from 'react'
-import { DataTableInterface } from '@/interfaces/DataTableInterfaces'
 import { useExpenses } from '@/contexts/expensesContext'
+import axios from "axios"
 
 export default function Expenses() {
     const { expenses, setExpenses } = useExpenses()
 
+    const apiUrl: string = import.meta.env.VITE_API_URL
+
     useEffect(() => {
-        const getData = (): DataTableInterface[] => {
-            const data = localStorage.getItem('expense') as string
-            return JSON.parse(data); 
+        const getData = async (): Promise<void> => {
+            const response = await axios.get(`${apiUrl}/list`)
+            setExpenses(response.data)
         }
 
-        const obj: DataTableInterface[] = getData()
-
-        setExpenses(obj)
+        getData()
     }, [])
 
     return (

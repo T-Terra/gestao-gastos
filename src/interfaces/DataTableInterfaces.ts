@@ -3,6 +3,7 @@ export interface DataTableInterface {
     amount: string
     description: string
     category: string
+    dataTime: string
 }
 
 export interface SetStateInterface {

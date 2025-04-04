@@ -16,6 +16,7 @@ import {
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import DialogDeleteExpenses from "../dialog/dialogDeleteExpense"
+import moment from "moment"
 
 type props = {
     col: string[]
@@ -26,6 +27,10 @@ export default function PaginatedTable({ col, dataTable }: props) {
     const [currentPage, setCurrentPage] = useState(1)
     const itemsPerPage: number = 10
     const sizeIcons: number = 17
+
+    const converData = (data: string) => {
+        return moment(data).format("DD/MM/YYYY HH:mm:ss")
+    }
 
     const desc = [...(dataTable || [])].reverse()
     const indexOfLastItem = currentPage * itemsPerPage
@@ -40,9 +45,9 @@ export default function PaginatedTable({ col, dataTable }: props) {
             <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium">
-                        {value || "-"}
+                        {colIndex === 5 ? converData(value) : value}
                     </TableCell>
-                ))}
+                )).slice(1)}
                 <TableCell className="text-right">
                     <DialogDeleteExpenses indexRow={rowIndex}>
                         <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
