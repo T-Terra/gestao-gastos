@@ -1,11 +1,6 @@
 export interface DataTableInterface {
-    name: string
-    amount: string
-    description: string
-    category: string
-    dataTime: string
-}
-
-export interface SetStateInterface {
-    setState: (dataArr: DataTableInterface[]) => void
+    NameExpense: string
+    AmountExpense: string
+    DescriptionExpense: string
+    CategoryExpense: string
 }

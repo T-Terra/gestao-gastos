@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import {
     Table,
     TableBody,
@@ -17,38 +17,39 @@ import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import DialogDeleteExpenses from "../dialog/dialogDeleteExpense"
 import moment from "moment"
+import { useExpenses } from "@/contexts/expensesContext"
 
 type props = {
     col: string[]
-    dataTable: DataTableInterface[] | CategoryInterface[] | []
 }
 
-export default function PaginatedTable({ col, dataTable }: props) {
+export default function PaginatedTable({ col }: props) {
     const [currentPage, setCurrentPage] = useState(1)
+    const { expenses, setExpenses } = useExpenses()
     const itemsPerPage: number = 10
-    const sizeIcons: number = 17
+    const sizeIcons: number = 16
 
     const converData = (data: string) => {
         return moment(data).format("DD/MM/YYYY HH:mm:ss")
     }
 
-    const desc = [...(dataTable || [])].reverse()
+    const desc = [...(expenses || [])].reverse()
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const currentItems = (desc || [])
     .slice(indexOfFirstItem, indexOfLastItem)
 
-    const totalPages = Math.ceil((dataTable || []).length / itemsPerPage)
+    const totalPages = Math.ceil((expenses || []).length / itemsPerPage)
 
     const handleCell = (obj: DataTableInterface | CategoryInterface, rowIndex: number) => {
         return (
             <TableRow key={rowIndex} className="border-none">
                 {Object.values(obj).map((value, colIndex) => (
-                    <TableCell key={colIndex} className="font-medium">
+                    <TableCell key={colIndex} className="font-medium text-[16px] p-3">
                         {colIndex === 5 ? converData(value) : value}
                     </TableCell>
                 )).slice(1)}
-                <TableCell className="text-right">
+                <TableCell className="p-0">
                     <DialogDeleteExpenses indexRow={rowIndex}>
                         <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
                     </DialogDeleteExpenses>
@@ -68,13 +69,12 @@ export default function PaginatedTable({ col, dataTable }: props) {
                         )}
                     </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className="h-full">
                     {currentItems.map((data, rowIndex) => 
                         handleCell(data, rowIndex)
                     )}
                 </TableBody>
             </Table>
-            {/* Botões de Paginação */}
             <div className="flex flex-row justify-between">
                 <span className="font-semibold"> Página {currentPage} de {totalPages} </span>
                 <div className="mx-4 flex flex-row gap-1.5">

@@ -15,36 +15,30 @@ import ComboBoxExpenses from "../combobox/comboboxExpenses"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { useState } from "react"
-import { DataTableInterface, SetStateInterface } from "@/interfaces/DataTableInterfaces"
-import { formatAmount } from "@/utils/formaters"
+import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
+import axios from "axios"
+import { useExpenses } from "@/contexts/expensesContext"
 
 
-export default function DialogExpenses({ setState }: SetStateInterface) {
+export default function DialogExpenses() {
     const [isOpen, setOpen] = useState(false)
     const [category, setCategory] = useState("")
+    const { expenses, setExpenses } = useExpenses() 
 
-    const getData = (): DataTableInterface[] => {
-        const data = localStorage.getItem('expense') as string
-        return JSON.parse(data); 
-    }
+    const apiUrl: string = import.meta.env.VITE_API_URL
 
-    const saveData = (expense: DataTableInterface) => {
-        if (expense.name === "" && expense.description == "") {
+    const saveData = async (expense: DataTableInterface) => {
+        if (expense.NameExpense === "" && expense.AmountExpense == "") {
             alert("Campos vazios não foi possível salvar")
         } else {
-            
-            const obj: DataTableInterface[] = getData()
+            const response = await axios.post(`${apiUrl}/add`, JSON.stringify(expense), {
+                headers: {"Content-Type": "application/json"}
+            })
 
-            let expenseArray: DataTableInterface[] = []
-
-            if (obj !== null) {
-                expenseArray = [...obj, expense]
-            } else {
-                expenseArray = [expense]
+            if (response.status === 201) {
+                const newExpense = response.data
+                setExpenses(prev => [...prev, newExpense])
             }
-
-            localStorage.setItem('expense', JSON.stringify(expenseArray))
-            setState(expenseArray)
             setCategory("")
         }
     }
@@ -55,10 +49,10 @@ export default function DialogExpenses({ setState }: SetStateInterface) {
         const description = formData.get("description") as string
 
         const expense: DataTableInterface = {
-            "name": name,
-            "amount": formatAmount(amount),
-            "description": description,
-            "category": category
+            "NameExpense": name,
+            "AmountExpense": amount,
+            "DescriptionExpense": description,
+            "CategoryExpense": category
         }
 
         saveData(expense)

@@ -25,11 +25,11 @@ export default function Expenses() {
     }, [])
 
     return (
-        <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
-            <div className="w-[400px] py-13">
+        <div className="bg-gray-900 h-screen w-screen flex flex-col items-end py-6">
+            <div className="w-[400px]">
                 <User nameUser="Maria Silva" />
             </div>
-            <div className="w-full text-gray-100 flex flex-col gap-8 items-center">
+            <div className="w-full text-gray-100 flex flex-col gap-3 items-center">
                 <div  className="w-[1100px] flex justify-between">
                     <div>
                         <h1 className="font-semibold text-4xl">
@@ -37,7 +37,7 @@ export default function Expenses() {
                         </h1>
                     </div>
                     <div>
-                        <DialogExpenses setState={setExpenses}/>
+                        <DialogExpenses />
                     </div>
                 </div>
                 <div className="flex gap-5">
@@ -76,7 +76,7 @@ export default function Expenses() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} dataTable={expenses}/>
+                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} />
             </div>
         </div>
     )
