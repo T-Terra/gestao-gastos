@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.14](https://github.com/T-Terra/gestao-gastos/compare/v0.1.13...v0.1.14) (2025-04-07)
+
+
+### Features
+
+* add revenue dialog ([0a36481](https://github.com/T-Terra/gestao-gastos/commit/0a364819da50a8c84bd235f8b419ecd84398dba7))
+
 ### [0.1.13](https://github.com/T-Terra/gestao-gastos/compare/v0.1.12...v0.1.13) (2025-04-04)
 
 
