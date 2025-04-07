@@ -6,8 +6,26 @@ import {
 } from 'lucide-react'
 import Chart from '@/components/charts/Chart'
 import User from '@/components/user/user'
+import { useEffect, useState } from 'react'
+import { formatAmount } from '@/utils/formaters'
+import axios from "axios"
 
 export default function Home() {
+    const [localRevenue, setLocalRevenue] = useState("")
+
+    const apiUrl: string = import.meta.env.VITE_API_URL
+
+    useEffect(() => {
+        const getRevenues = async () => {
+            const response = await axios.get(`${apiUrl}/revenue`)
+            const revenues = response.data.reverse()[0]
+
+            setLocalRevenue(revenues.amountRevenue)
+        }
+
+        getRevenues()
+    }, [])
+
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
             <div className="w-[400px] py-13">
@@ -34,7 +52,7 @@ export default function Home() {
                     <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Receitas</label>
-                            <label>R$ 1.500,00</label>
+                            <label>{formatAmount(localRevenue)}</label>
                         </div>
                         <div className="px-8">
                             <div className="bg-emerald-500 rounded-full p-2">

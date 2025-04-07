@@ -13,49 +13,21 @@ import BankNoteIcon from "../icons/bankNoteIcon"
 
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
-import { useEffect, useState } from "react"
-import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
+import { useState } from "react"
+import { RevenueInterface } from "@/interfaces/RevenueInterface"
 import axios from "axios"
 
 
 export default function DialogRevenue() {
     const [isOpen, setOpen] = useState(false)
-    const [inputValue, setInputValue] = useState("")
 
     const apiUrl: string = import.meta.env.VITE_API_URL
 
-    useEffect(() => {
-        console.log("Valor mudour: ", inputValue)
-    }, [inputValue])
-
-    const handlerInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputValue = e.target.value
-
-        // Remove tudo que não for número
-        const numericValue = inputValue.replace(/\D/g, "")
-    
-        // Divide por 100 para pegar os centavos
-        const floatValue = parseFloat(numericValue) / 100
-    
-        if (isNaN(floatValue)) {
-            setInputValue("")
-            return
-        }
-    
-        // Formata como pt-BR
-        const formatted = floatValue.toLocaleString("pt-BR", {
-            style: "currency",
-            currency: "BRL",
-        })
-    
-        setInputValue(formatted)
-    }
-
-    const saveData = async (expense: DataTableInterface) => {
-        if (expense.NameExpense === "" && expense.AmountExpense == "") {
+    const saveData = async (revenue: RevenueInterface) => {
+        if (revenue.amountRevenue === undefined || null) {
             alert("Campos vazios não foi possível salvar")
         } else {
-            const response = await axios.post(`${apiUrl}/add`, JSON.stringify(expense), {
+            const response = await axios.post(`${apiUrl}/revenue`, JSON.stringify(revenue), {
                 headers: {"Content-Type": "application/json"}
             })
         }
@@ -63,6 +35,11 @@ export default function DialogRevenue() {
 
     const getDataForm = (formData: FormData) => {
         const amount = formData.get("amount") as string
+        const revenue: RevenueInterface = {
+            "amountRevenue": parseFloat(amount)
+        }
+
+        saveData(revenue)
     }
 
     return (
@@ -95,8 +72,6 @@ export default function DialogRevenue() {
                                     <Input 
                                         className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" 
                                         type="number"
-                                        value={inputValue}
-                                        onChange={handlerInputValue}
                                         placeholder="R$100,00"
                                     />
                                 </div>
