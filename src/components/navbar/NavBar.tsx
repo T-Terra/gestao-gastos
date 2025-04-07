@@ -1,8 +1,7 @@
 import { Outlet, Link } from "react-router"
 import { 
     HomeIcon, 
-    HandCoins, 
-    Plus,
+    HandCoins,
     ChevronRight,
     ChevronLeft,
     List
@@ -11,6 +10,7 @@ import { Button } from "../buttons/button"
 import IconStyles from "../buttons/IconStyles"
 import { useState } from "react"
 import { motion } from "framer-motion"
+import DialogRevenue from "../dialog/dialogRevenue"
 
 
 export default function NavBar() {
@@ -40,11 +40,7 @@ export default function NavBar() {
                 <div className="text-gray-100">
                     <ul className="flex flex-col gap-8 items-center my-35">
                         <li>
-                            <Link to="/" replace>
-                                <Button type="button" style="bg-indigo-500 hover:bg-indigo-400 w-[55px] h-[55px] rounded-4xl flex justify-center items-center">
-                                    <Plus size={sizeIcons}/>
-                                </Button>
-                            </Link>
+                            <DialogRevenue />
                         </li>
                         <li>
                             <Link to="/home" replace>
