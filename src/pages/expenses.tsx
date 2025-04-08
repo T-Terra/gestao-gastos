@@ -6,12 +6,14 @@ import {
 import User from '@/components/user/user'
 import TableList from '@/components/tables/table'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useExpenses } from '@/contexts/expensesContext'
+import { formatAmount } from '@/utils/formaters'
 import axios from "axios"
 
 export default function Expenses() {
     const { expenses, setExpenses } = useExpenses()
+    const [expensesTotal, setExpensesTotal] = useState("")
 
     const apiUrl: string = import.meta.env.VITE_API_URL
 
@@ -19,6 +21,15 @@ export default function Expenses() {
         const getData = async (): Promise<void> => {
             const response = await axios.get(`${apiUrl}/list`)
             setExpenses(response.data)
+        }
+
+        getData()
+    }, [])
+
+    useEffect(() => {
+        const getData = async (): Promise<void> => {
+            const response = await axios.get(`${apiUrl}/expenses/total`)
+            setExpensesTotal(response.data)
         }
 
         getData()
@@ -44,7 +55,7 @@ export default function Expenses() {
                     <div className="h-[120px] w-auto lg:w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Despesas pendentes</label>
-                            <label>R$ 2.000,00</label>
+                            <label>--</label>
                         </div>
                         <div className="px-8">
                             <div className="bg-red-500 rounded-full p-2">
@@ -55,7 +66,7 @@ export default function Expenses() {
                     <div className="h-[120px] w-auto lg:w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Despesas pagas</label>
-                            <label>R$ 1.500,00</label>
+                            <label>--</label>
                         </div>
                         <div className="px-8">
                             <div className="bg-red-500 rounded-full p-2">
@@ -66,7 +77,12 @@ export default function Expenses() {
                     <div className="h-[120px] w-auto lg:w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Total</label>
-                            <label>R$ 1.000,00</label>
+                            <label>
+                                { expensesTotal
+                                    ? `-${formatAmount(expensesTotal['total'])}`
+                                    : "R$0,00"
+                                }
+                            </label>
                         </div>
                         <div className="px-8">
                             <div className="bg-red-500 rounded-full p-2">

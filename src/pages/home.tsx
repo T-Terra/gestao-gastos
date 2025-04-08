@@ -12,6 +12,7 @@ import axios from "axios"
 
 export default function Home() {
     const [localRevenue, setLocalRevenue] = useState("")
+    const [expensesTotal, setExpensesTotal] = useState("")
 
     const apiUrl: string = import.meta.env.VITE_API_URL
 
@@ -22,9 +23,28 @@ export default function Home() {
 
             setLocalRevenue(revenues.amountRevenue)
         }
-
         getRevenues()
     }, [])
+
+    useEffect(() => {
+        const getData = async (): Promise<void> => {
+            const response = await axios.get(`${apiUrl}/expenses/total`)
+            setExpensesTotal(response.data)
+        }
+
+        getData()
+    }, [])
+
+    const handlerCurrentCost = () => {
+        try {
+            const revenueFloat = parseFloat(localRevenue)
+            const expensesTotalFloat = parseFloat(expensesTotal['total'])
+
+            return revenueFloat - expensesTotalFloat
+        } catch (error) {
+            throw new Error(`msg: ${error}`)
+        }
+    }
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
@@ -41,7 +61,11 @@ export default function Home() {
                     <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Saldo Atual</label>
-                            <label>R$ 2.000,00</label>
+                            <label>
+                                {
+                                    formatAmount(handlerCurrentCost().toString())
+                                }
+                            </label>
                         </div>
                         <div className="px-8">
                             <div className="bg-blue-500 rounded-full p-2">
@@ -52,7 +76,12 @@ export default function Home() {
                     <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Receitas</label>
-                            <label>{formatAmount(localRevenue)}</label>
+                            <label>
+                                { localRevenue 
+                                    ? formatAmount(localRevenue) 
+                                    : "R$0,00"
+                                }
+                            </label>
                         </div>
                         <div className="px-8">
                             <div className="bg-emerald-500 rounded-full p-2">
@@ -63,7 +92,12 @@ export default function Home() {
                     <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Despesas</label>
-                            <label>- R$ 1.000,00</label>
+                            <label>                                
+                                { expensesTotal
+                                    ? `-${formatAmount(expensesTotal['total'])}`
+                                    : "R$0,00"
+                                }
+                            </label>
                         </div>
                         <div className="px-8">
                             <div className="bg-red-500 rounded-full p-2">
@@ -74,7 +108,7 @@ export default function Home() {
                     <div className="h-[120px] w-[350px] bg-gray-800 rounded-4xl shadow-lg flex justify-between items-center">
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Cartão de Crédito</label>
-                            <label>- R$ 500,00</label>
+                            <label>--</label>
                         </div>
                         <div className="px-8">
                             <div className="bg-emerald-800 rounded-full p-2">
