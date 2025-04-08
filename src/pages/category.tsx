@@ -1,21 +1,23 @@
 import User from '@/components/user/user'
-import TableList from '@/components/tables/table'
+import CategoryTable from '@/components/tables/categoryTable'
 import DialogCategory from '@/components/dialog/dialogCategory'
 import { useEffect, useState } from 'react'
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
+import axios from "axios"
 
 export default function Category() {
-    const [dataTable, setDataTatle] = useState<CategoryInterface[]>([])
+    const [dataTable, setDataTable] = useState<CategoryInterface[]>()
+    const apiUrl: string = import.meta.env.VITE_API_URL
 
    useEffect(() => {
-        const getData = (): CategoryInterface[] => {
-            const data = localStorage.getItem("category") as string
-            return JSON.parse(data)
-        }
+        const getData = async () => {
+            const response = await axios.get(`${apiUrl}/category`)
+            const categoryObjs: CategoryInterface[] = response.data
+    
+            setDataTable(categoryObjs)
+        };
 
-        const categoryObjs: CategoryInterface[] = getData()
-
-        setDataTatle(categoryObjs)
+        getData()
    }, [])
 
     return (
@@ -31,11 +33,11 @@ export default function Category() {
                         </h1>
                     </div>
                     <div>
-                        <DialogCategory setState={setDataTatle}/>
+                        <DialogCategory setState={setDataTable}/>
                     </div>
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome da Categoria', 'Descrição', 'Data Criação']} dataTable={dataTable} />
+                <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} dataTable={dataTable} />
             </div>
         </div>
     )

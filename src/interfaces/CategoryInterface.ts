@@ -1,6 +1,6 @@
 export interface CategoryInterface {
-    categoryName: string
-    description: string
+    NameCategory: string
+    DescriptionCategory: string
 }
 
 export interface SetStateInterface {

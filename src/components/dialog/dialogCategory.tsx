@@ -15,23 +15,25 @@ import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { CategoryInterface, SetStateInterface } from "@/interfaces/CategoryInterface"
 import { useState } from "react"
+import axios from "axios"
 
 export default function DialogCategory({ setState }: SetStateInterface) {
     const [isOpen, setOpen] = useState(false)
+    const apiUrl: string = import.meta.env.VITE_API_URL
 
-    const getData = (): CategoryInterface[] => {
-        const data = localStorage.getItem('category') as string
-        return data !== null ? JSON.parse(data) : []
-    }
-
-    const saveData = (data: CategoryInterface) => {
-        if (data.categoryName === "" && data.description === "") {
+    const saveData = async (data: CategoryInterface) => {
+        if (data.NameCategory === "" && data.DescriptionCategory === "") {
             alert("Dados vazios não são salvos")
         } else {
-            const Objs: CategoryInterface[] = getData()
-            const categoryArray: CategoryInterface[] = [...Objs, data]
-            localStorage.setItem("category", JSON.stringify(categoryArray))
-            setState(categoryArray)
+            const response = await axios.post(`${apiUrl}/category`, JSON.stringify(data), {
+                headers: {"Content-Type": "application/json"}
+            })
+
+            if (response.status === 200) {
+                const Objs: CategoryInterface[] = response.data
+                const categoryArray: CategoryInterface[] = [...Objs, data]
+                setState(categoryArray)
+            }
         }
     }
 
@@ -40,8 +42,8 @@ export default function DialogCategory({ setState }: SetStateInterface) {
         const description = formData.get('description') as string
 
         const arrayObj: CategoryInterface = {
-            "categoryName": categoryName,
-            "description": description
+            "NameCategory": categoryName,
+            "DescriptionCategory": description
         }
 
         saveData(arrayObj)
