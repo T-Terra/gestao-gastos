@@ -16,21 +16,24 @@ import { cn } from "@/lib/utils"
 import { ChevronsUpDown, Check } from 'lucide-react'
 import { Button } from "../ui/button"
 import { useEffect, useState } from "react"
+import axios from "axios"
    
 
 export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface) {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
-    const [category, setCategory] = useState<CategoryInterface[]>([])
+    const [categories, setCategory] = useState<CategoryInterface[]>([])
+    const apiUrl: string = import.meta.env.VITE_API_URL
 
     useEffect(() => {
-        const getData = (): CategoryInterface[] => {
-            const data = localStorage.getItem('category') as string
-            return data !== null ? JSON.parse(data) : []
-        }
+        const getData = async () => {
+            const response = await axios.get(`${apiUrl}/category`)
+            const categoryObjs: CategoryInterface[] = response.data
+            setCategory(categoryObjs)
+        };
 
-        setCategory(getData())
-    }, [])
+        getData()
+   }, [])
 
     return (
         <div>
@@ -43,7 +46,7 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
                         className="w-[180px] justify-between bg-gray-900 text-gray-100 hover:bg-gray-200"
                     >
                         {value
-                            ? category.find((category) => category.categoryName === value)?.categoryName
+                            ? categories.find((category) => category['nameCategory'] === value)?.nameCategory
                             : "Categoria..."}
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
@@ -54,10 +57,10 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
                         <CommandList>
                             <CommandEmpty>Categoria não encontrada</CommandEmpty>
                             <CommandGroup className="text-gray-100">
-                                {category.map((category) => (
+                                {categories.map((category, indexId) => (
                                     <CommandItem
-                                        key={category.categoryName}
-                                        value={category.categoryName}
+                                        key={indexId}
+                                        value={category['nameCategory']}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
                                             setState(currentValue === value ? "" : currentValue)
@@ -68,10 +71,10 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
                                             className={cn(
                                             "mr-2 h-4 w-4",
                                             "text-gray-100",
-                                            value === category.categoryName ? "opacity-100" : "opacity-0"
+                                            value === category['nameCategory'] ? "opacity-100" : "opacity-0"
                                             )}
                                         />
-                                        {category.categoryName}
+                                        {category['nameCategory']}
                                     </CommandItem>
                                 ))}
                             </CommandGroup>

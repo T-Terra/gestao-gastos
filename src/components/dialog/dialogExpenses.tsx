@@ -58,10 +58,6 @@ export default function DialogExpenses() {
         saveData(expense)
     }
 
-    const getValueCategory = (value: string) => {
-        setCategory(value)
-    }
-
     return (
         <div>
             <Dialog open={isOpen} onOpenChange={setOpen}>
@@ -98,7 +94,7 @@ export default function DialogExpenses() {
                                 <label>Descrição</label>
                                 <Textarea name="description" placeholder="Descrição da despesa"/>
                                 <label>Categoria</label>
-                                <ComboBoxExpenses setState={getValueCategory}/>
+                                <ComboBoxExpenses setState={setCategory}/>
                             </div>
                             <div className="w-[100px] py-2">
                                 <Button 
