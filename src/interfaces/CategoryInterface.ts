@@ -4,7 +4,7 @@ export interface CategoryInterface {
 }
 
 export interface SetStateInterface {
-    setState: (dataArr: CategoryInterface[]) => void
+    setState: React.Dispatch<React.SetStateAction<CategoryInterface[]>>
 }
 
 export interface SetStateComboboxInterface {

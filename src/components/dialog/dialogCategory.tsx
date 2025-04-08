@@ -29,10 +29,8 @@ export default function DialogCategory({ setState }: SetStateInterface) {
                 headers: {"Content-Type": "application/json"}
             })
 
-            if (response.status === 200) {
-                const Objs: CategoryInterface[] = response.data
-                const categoryArray: CategoryInterface[] = [...Objs, data]
-                setState(categoryArray)
+            if (response.status === 201 || response.status === 200) {
+                setState((prev) => [...prev, response.data])
             }
         }
     }

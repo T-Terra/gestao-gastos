@@ -33,7 +33,7 @@ export default function Category() {
                         </h1>
                     </div>
                     <div>
-                        <DialogCategory setState={setDataTable}/>
+                        <DialogCategory setState={setDataTable} />
                     </div>
                 </div>
                 {/* div list expenses */}
