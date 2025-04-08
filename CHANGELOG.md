@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.16](https://github.com/T-Terra/gestao-gastos/compare/v0.1.15...v0.1.16) (2025-04-08)
+
+
+### Features
+
+* add new context category and delete category ([e230e8b](https://github.com/T-Terra/gestao-gastos/commit/e230e8b0ed2e308d82b8fdfcf807c749cf6d9bdc))
+* create category ([d4c714c](https://github.com/T-Terra/gestao-gastos/commit/d4c714cc04f079667ab27a197eea6be0df2a9f9f))
+
+
+### Bug Fixes
+
+* combobox category in expenses ([6fe94d8](https://github.com/T-Terra/gestao-gastos/commit/6fe94d80890c2b563587d2ec4b9be903763e7a7b))
+* use func setState in children ([2649ac0](https://github.com/T-Terra/gestao-gastos/commit/2649ac0cedf10ada324fa59a2145d2c2b95acdbe))
+
 ### [0.1.15](https://github.com/T-Terra/gestao-gastos/compare/v0.1.14...v0.1.15) (2025-04-07)
 
 
