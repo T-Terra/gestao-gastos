@@ -16,24 +16,25 @@ import {
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import DialogDeleteCategory from "../dialog/dialogDeleteCategory"
 import { converData } from "@/utils/formaters"
+import { useCategory } from "@/contexts/categoryContext"
 
 type props = {
     col: string[]
-    dataTable: CategoryInterface[] | []
 }
 
-export default function CategoryTable({ col, dataTable }: props) {
+export default function CategoryTable({ col }: props) {
     const [currentPage, setCurrentPage] = useState(1)
+    const { categories, setCategories } = useCategory()
     const itemsPerPage: number = 10
     const sizeIcons: number = 16
 
-    const desc = [...(dataTable || [])].reverse()
+    const desc = [...(categories || [])].reverse()
     const indexOfLastItem = currentPage * itemsPerPage
     const indexOfFirstItem = indexOfLastItem - itemsPerPage
     const currentItems = (desc || [])
     .slice(indexOfFirstItem, indexOfLastItem)
 
-    const totalPages = Math.ceil((dataTable || []).length / itemsPerPage)
+    const totalPages = Math.ceil((categories || []).length / itemsPerPage)
 
     const handleCell = (obj: CategoryInterface, rowIndex: number) => {
         return (

@@ -1,12 +1,13 @@
 import User from '@/components/user/user'
 import CategoryTable from '@/components/tables/categoryTable'
 import DialogCategory from '@/components/dialog/dialogCategory'
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
+import { useCategory } from "@/contexts/categoryContext"
 import axios from "axios"
 
 export default function Category() {
-    const [dataTable, setDataTable] = useState<CategoryInterface[]>()
+    const { categories, setCategories } = useCategory()
     const apiUrl: string = import.meta.env.VITE_API_URL
 
    useEffect(() => {
@@ -14,7 +15,7 @@ export default function Category() {
             const response = await axios.get(`${apiUrl}/category`)
             const categoryObjs: CategoryInterface[] = response.data
     
-            setDataTable(categoryObjs)
+            setCategories(categoryObjs)
         };
 
         getData()
@@ -33,11 +34,11 @@ export default function Category() {
                         </h1>
                     </div>
                     <div>
-                        <DialogCategory setState={setDataTable} />
+                        <DialogCategory />
                     </div>
                 </div>
                 {/* div list expenses */}
-                <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} dataTable={dataTable} />
+                <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} />
             </div>
         </div>
     )

@@ -13,12 +13,15 @@ import {
 import { Textarea } from "@/components/ui/textarea"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
-import { CategoryInterface, SetStateInterface } from "@/interfaces/CategoryInterface"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
+import { useCategory } from "@/contexts/categoryContext"
 import { useState } from "react"
 import axios from "axios"
 
-export default function DialogCategory({ setState }: SetStateInterface) {
+export default function DialogCategory() {
     const [isOpen, setOpen] = useState(false)
+    const { categories, setCategories } = useCategory()
+    
     const apiUrl: string = import.meta.env.VITE_API_URL
 
     const saveData = async (data: CategoryInterface) => {
@@ -30,7 +33,7 @@ export default function DialogCategory({ setState }: SetStateInterface) {
             })
 
             if (response.status === 201 || response.status === 200) {
-                setState((prev) => [...prev, response.data])
+                setCategories((prev) => [...prev, response.data])
             }
         }
     }

@@ -1,11 +1,11 @@
 import { AppRoutes } from "./routes/routes"
-import { ExpenseProvider } from "./contexts/expensesContext"
+import AppProviders from "./contexts/appProvider"
 
 function App() {
   return (
-    <ExpenseProvider>
+    <AppProviders>
       <AppRoutes/>
-    </ExpenseProvider>
+    </AppProviders>
   )
 }
 

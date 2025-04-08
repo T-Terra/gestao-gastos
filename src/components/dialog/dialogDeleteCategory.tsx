@@ -9,7 +9,7 @@ import {
 
 import { Button } from '@/components/buttons/button'
 import { useState } from "react"
-import { useExpenses } from "@/contexts/expensesContext"
+import { useCategory } from "@/contexts/categoryContext"
 import axios from "axios"
 
 type props = {
@@ -19,19 +19,19 @@ type props = {
 
 export default function DialogDeleteCategory({ indexRow, children }: props) {
     const [isOpen, setOpen] = useState(false)
-    const { expenses, setExpenses } = useExpenses()
+    const { categories, setCategories } = useCategory()
     const apiUrl: string = import.meta.env.VITE_API_URL
 
     const deleteData = async (index: number) => {
-        if (expenses !== null) {
-            const filterExpense = expenses.reverse().filter((expense, indexId) => indexId === index)
-            const expenseId = filterExpense[0]['id']
-            const response = await axios.delete(`${apiUrl}/category/${expenseId}`)
+        if (categories !== null) {
+            const filterCategory = categories.reverse().filter((expense, indexId) => indexId === index)
+            const categoryId = filterCategory[0]['id']
+            const response = await axios.delete(`${apiUrl}/category/${categoryId}`)
 
             if (response.status === 200) { 
                 // remove da listagem
-                const newObjList = expenses.filter((item, indexId) => indexId !== index).reverse()
-                setExpenses(newObjList)
+                const newObjList = categories.filter((item, indexId) => indexId !== index).reverse()
+                setCategories(newObjList)
             }
             setOpen(false)
         }
@@ -55,7 +55,7 @@ export default function DialogDeleteCategory({ indexRow, children }: props) {
                     <DialogHeader>
                         <DialogTitle>Apagar Registro?</DialogTitle>
                         <DialogDescription>
-                            Apaga o registro atual de despesa
+                            Apaga o registro atual de categoria
                         </DialogDescription>
                     </DialogHeader>
                     <div className="w-[100px] py-2">
