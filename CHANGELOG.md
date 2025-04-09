@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.18](https://github.com/T-Terra/gestao-gastos/compare/v0.1.17...v0.1.18) (2025-04-09)
+
+
+### Bug Fixes
+
+* parse float input expense amount ([21ece18](https://github.com/T-Terra/gestao-gastos/commit/21ece18a420e426359d4989cea5428d73aa3c88f))
+
 ### [0.1.17](https://github.com/T-Terra/gestao-gastos/compare/v0.1.16...v0.1.17) (2025-04-08)
 
 
