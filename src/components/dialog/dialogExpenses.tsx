@@ -99,7 +99,7 @@ export default function DialogExpenses() {
                             <div className="w-[100px] py-2">
                                 <Button 
                                     style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700"
-                                    onClick={() => {setOpen(true)}}
+                                    onClick={() => {setOpen(false)}}
                                     type="submit"
                                 >
                                     <Plus />
