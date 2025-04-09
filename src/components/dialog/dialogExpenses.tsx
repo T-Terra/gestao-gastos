@@ -89,7 +89,7 @@ export default function DialogExpenses() {
                                 <label>Valor da Despesa</label>
                                 <div className="flex items-center gap-1">
                                     <span className="font-semibold">R$</span>
-                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" type="number" placeholder="R$100,00"/>
+                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" type="number" placeholder="R$100,00" step="any"/>
                                 </div>
                                 <label>Descrição</label>
                                 <Textarea name="description" placeholder="Descrição da despesa"/>
@@ -99,7 +99,7 @@ export default function DialogExpenses() {
                             <div className="w-[100px] py-2">
                                 <Button 
                                     style="bg-gray-800 p-3 rounded-3xl shadow-md flex gap-1 hover:bg-gray-700"
-                                    onClick={() => {setOpen(false)}}
+                                    onClick={() => {setOpen(true)}}
                                     type="submit"
                                 >
                                     <Plus />
