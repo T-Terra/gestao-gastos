@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.19](https://github.com/T-Terra/gestao-gastos/compare/v0.1.18...v0.1.19) (2025-04-09)
+
+
+### Bug Fixes
+
+* closed dialog expenses ([e76bdc4](https://github.com/T-Terra/gestao-gastos/commit/e76bdc4ed04acc314bd45b3f1477e4f2cea8f2d9))
+
 ### [0.1.18](https://github.com/T-Terra/gestao-gastos/compare/v0.1.17...v0.1.18) (2025-04-09)
 
 
