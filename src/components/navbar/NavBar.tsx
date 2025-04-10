@@ -11,6 +11,7 @@ import IconStyles from "../buttons/IconStyles"
 import { useState } from "react"
 import { motion } from "framer-motion"
 import DialogRevenue from "../dialog/dialogRevenue"
+import { ToolTip } from "../tooltips/tooltip"
 
 
 export default function NavBar() {
@@ -40,28 +41,36 @@ export default function NavBar() {
                 <div className="text-gray-100">
                     <ul className="flex flex-col gap-8 items-center my-35">
                         <li>
-                            <DialogRevenue />
+                            <ToolTip nameToolTip="Insira a receita atual.">
+                                <DialogRevenue />
+                            </ToolTip>
                         </li>
                         <li>
-                            <Link to="/home" replace>
-                                <IconStyles>
-                                    <HomeIcon size={sizeIcons}/>
-                                </IconStyles>
-                            </Link>
+                            <ToolTip nameToolTip="Dashboard">
+                                <Link to="/home" replace>
+                                    <IconStyles>
+                                        <HomeIcon size={sizeIcons}/>
+                                    </IconStyles>
+                                </Link>
+                            </ToolTip>
                         </li>
                         <li>
-                            <Link to="/expenses" replace>
-                                <IconStyles>
-                                    <HandCoins size={sizeIcons}/>
-                                </IconStyles>
-                            </Link>
+                            <ToolTip nameToolTip="Despesas">
+                                <Link to="/expenses" replace>
+                                    <IconStyles>
+                                        <HandCoins size={sizeIcons}/>
+                                    </IconStyles>
+                                </Link>
+                            </ToolTip>
                         </li>
                         <li>
-                            <Link to="/category" replace>
-                                <IconStyles>
-                                    <List size={sizeIcons}/>
-                                </IconStyles>
-                            </Link>
+                            <ToolTip nameToolTip="Categorias">
+                                <Link to="/category" replace>
+                                    <IconStyles>
+                                        <List size={sizeIcons}/>
+                                    </IconStyles>
+                                </Link>
+                            </ToolTip>
                         </li>
                     </ul>
                 </div>
