@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.21](https://github.com/T-Terra/gestao-gastos/compare/v0.1.20...v0.1.21) (2025-04-11)
+
+
+### Features
+
+* add login request back ([43aafac](https://github.com/T-Terra/gestao-gastos/commit/43aafac463b31dc844c3436ec196af9e8dd86b71))
+* add with credentials ([5e26734](https://github.com/T-Terra/gestao-gastos/commit/5e26734baeec4e9330e24496035591211a620abc))
+
 ### [0.1.20](https://github.com/T-Terra/gestao-gastos/compare/v0.1.19...v0.1.20) (2025-04-11)
 
 
