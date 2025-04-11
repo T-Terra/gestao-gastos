@@ -26,7 +26,7 @@ export default function DialogDeleteExpenses({ indexRow, children }: props) {
         if (expenses !== null) {
             const filterExpense = expenses.reverse().filter((expense, indexId) => indexId === index)
             const expenseId = filterExpense[0]['id']
-            const response = await axios.delete(`${apiUrl}/delete/${expenseId}`)
+            const response = await axios.delete(`${apiUrl}/delete/${expenseId}`, {withCredentials: true})
 
             if (response.status === 200) { 
                 // remove da listagem

@@ -28,7 +28,8 @@ export default function DialogRevenue() {
             alert("Campos vazios não foi possível salvar")
         } else {
             const response = await axios.post(`${apiUrl}/revenue`, JSON.stringify(revenue), {
-                headers: {"Content-Type": "application/json"}
+                headers: {"Content-Type": "application/json"},
+                withCredentials: true
             })
         }
     }

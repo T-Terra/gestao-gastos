@@ -26,7 +26,7 @@ export default function DialogDeleteCategory({ indexRow, children }: props) {
         if (categories !== null) {
             const filterCategory = categories.reverse().filter((expense, indexId) => indexId === index)
             const categoryId = filterCategory[0]['id']
-            const response = await axios.delete(`${apiUrl}/category/${categoryId}`)
+            const response = await axios.delete(`${apiUrl}/category/${categoryId}`, {withCredentials: true})
 
             if (response.status === 200) { 
                 // remove da listagem

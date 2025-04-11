@@ -32,7 +32,8 @@ export default function DialogExpenses() {
             alert("Campos vazios não foi possível salvar")
         } else {
             const response = await axios.post(`${apiUrl}/add`, JSON.stringify(expense), {
-                headers: {"Content-Type": "application/json"}
+                headers: {"Content-Type": "application/json"},
+                withCredentials: true
             })
 
             if (response.status === 201) {

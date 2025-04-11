@@ -13,8 +13,7 @@ export default function Login() {
             alert("Campos vazios não foi possível salvar")
         } else {
             const response = await axios.post(`${apiUrl}/login`, JSON.stringify(login), {
-                headers: {"Content-Type": "application/json"}, 
-                withCredentials: true
+                headers: {"Content-Type": "application/json"}
             })
 
             if (response.status === 200) {

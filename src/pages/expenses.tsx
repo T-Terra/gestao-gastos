@@ -19,7 +19,9 @@ export default function Expenses() {
 
     useEffect(() => {
         const getData = async (): Promise<void> => {
-            const response = await axios.get(`${apiUrl}/list`)
+            const response = await axios.get(`${apiUrl}/list`, {
+                withCredentials: true
+            })
             setExpenses(response.data)
         }
 
@@ -28,7 +30,7 @@ export default function Expenses() {
 
     useEffect(() => {
         const getData = async (): Promise<void> => {
-            const response = await axios.get(`${apiUrl}/expenses/total`)
+            const response = await axios.get(`${apiUrl}/expenses/total`, {withCredentials: true})
             setExpensesTotal(response.data)
         }
 

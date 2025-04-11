@@ -18,7 +18,7 @@ export default function Home() {
 
     useEffect(() => {
         const getRevenues = async () => {
-            const response = await axios.get(`${apiUrl}/revenue`)
+            const response = await axios.get(`${apiUrl}/revenue`, {withCredentials: true})
             const revenues = response.data.reverse()[0]
 
             setLocalRevenue(revenues.amountRevenue)
@@ -28,7 +28,7 @@ export default function Home() {
 
     useEffect(() => {
         const getData = async (): Promise<void> => {
-            const response = await axios.get(`${apiUrl}/expenses/total`)
+            const response = await axios.get(`${apiUrl}/expenses/total`, {withCredentials: true})
             setExpensesTotal(response.data)
         }
 

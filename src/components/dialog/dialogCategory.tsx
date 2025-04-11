@@ -29,7 +29,8 @@ export default function DialogCategory() {
             alert("Dados vazios não são salvos")
         } else {
             const response = await axios.post(`${apiUrl}/category`, JSON.stringify(data), {
-                headers: {"Content-Type": "application/json"}
+                headers: {"Content-Type": "application/json"},
+                withCredentials: true
             })
 
             if (response.status === 201 || response.status === 200) {
