@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.20](https://github.com/T-Terra/gestao-gastos/compare/v0.1.19...v0.1.20) (2025-04-11)
+
+
+### Features
+
+* add register axios and implements request to back ([847cbf8](https://github.com/T-Terra/gestao-gastos/commit/847cbf8847ff82260a14f1d9bd4baf51d9a6ba42))
+* add tooltips in navbar menu ([235a895](https://github.com/T-Terra/gestao-gastos/commit/235a8956a5f422d93fd15c4e2878f943a434738f))
+
 ### [0.1.19](https://github.com/T-Terra/gestao-gastos/compare/v0.1.18...v0.1.19) (2025-04-09)
 
 
