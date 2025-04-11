@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.23](https://github.com/T-Terra/gestao-gastos/compare/v0.1.22...v0.1.23) (2025-04-11)
+
 ### [0.1.22](https://github.com/T-Terra/gestao-gastos/compare/v0.1.21...v0.1.22) (2025-04-11)
 
 
