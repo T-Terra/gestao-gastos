@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.22](https://github.com/T-Terra/gestao-gastos/compare/v0.1.21...v0.1.22) (2025-04-11)
+
+
+### Features
+
+* add user name to get back username ([d09865f](https://github.com/T-Terra/gestao-gastos/commit/d09865fbf94e6595b157e84bad024d0a20163220))
+
 ### [0.1.21](https://github.com/T-Terra/gestao-gastos/compare/v0.1.20...v0.1.21) (2025-04-11)
 
 
