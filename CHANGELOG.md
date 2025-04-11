@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.24](https://github.com/T-Terra/gestao-gastos/compare/v0.1.23...v0.1.24) (2025-04-11)
+
+
+### Bug Fixes
+
+* sdd slice again category table ([0fda3a0](https://github.com/T-Terra/gestao-gastos/commit/0fda3a022a2b23b5278ecaf33ad48e8d01531675))
+
 ### [0.1.23](https://github.com/T-Terra/gestao-gastos/compare/v0.1.22...v0.1.23) (2025-04-11)
 
 ### [0.1.22](https://github.com/T-Terra/gestao-gastos/compare/v0.1.21...v0.1.22) (2025-04-11)
