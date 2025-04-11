@@ -40,7 +40,7 @@ export default function Expenses() {
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end py-6">
             <div className="w-[400px]">
-                <User nameUser="Maria Silva" />
+                <User />
             </div>
             <div className="w-full text-gray-100 flex flex-col gap-3 items-center">
                 <div  className="w-[1100px] flex justify-between">

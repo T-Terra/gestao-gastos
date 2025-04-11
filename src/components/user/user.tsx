@@ -1,11 +1,15 @@
 import UserImg from "@/assets/user.png"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { useEffect, useState } from "react"
 
-type props = {
-    nameUser: string
-}
+export default function User() {
+    const [user, setUser] = useState("")
 
-export default function User({ nameUser }: props) {
+    useEffect(() => {
+        const username = localStorage.getItem("username") as string
+        setUser(username)
+    }, [])
+
     return (
         <div className="flex items-center gap-4 text-gray-100 w-[300px] p-3">
             <Avatar>
@@ -13,7 +17,7 @@ export default function User({ nameUser }: props) {
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
             <div className="font-semibold">
-                {nameUser}
+                {user}
             </div>
         </div>
     )
