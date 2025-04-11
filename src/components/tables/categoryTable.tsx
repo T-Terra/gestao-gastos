@@ -42,12 +42,12 @@ export default function CategoryTable({ col }: props) {
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium text-[16px] p-3">
                         {
-                            colIndex === 3
+                            colIndex === 2
                             ? converData(value) 
                             : value 
                         }
                     </TableCell>
-                )).slice(1)}
+                ))}
                 <TableCell className="p-0">
                     <DialogDeleteCategory indexRow={rowIndex}>
                         <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
