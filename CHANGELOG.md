@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.25](https://github.com/T-Terra/gestao-gastos/compare/v0.1.24...v0.1.25) (2025-04-13)
+
+
+### Features
+
+* add logout in navbar ([e465507](https://github.com/T-Terra/gestao-gastos/commit/e4655072c3b1007c524f791b98ebf1ebe7b1b0dd))
+* dialog revenue list for user ([3cf6673](https://github.com/T-Terra/gestao-gastos/commit/3cf6673be9f3094e905ad2e545eac20baa8e0360))
+
 ### [0.1.24](https://github.com/T-Terra/gestao-gastos/compare/v0.1.23...v0.1.24) (2025-04-11)
 
 
