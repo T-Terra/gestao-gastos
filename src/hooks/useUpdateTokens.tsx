@@ -9,7 +9,7 @@ export function useUpdateTokens() {
 
         const checkUpdate = async () => {
             try {
-                await axios.get(`${ApiUrl}/refresh-token/`, {
+                await axios.post(`${ApiUrl}/refresh-token`, {
                     withCredentials: true
                 })
                 

@@ -9,11 +9,11 @@ export function useAuth() {
         
         const checkAuth = async () => {
             try {
-                const response = await axios.get(`${ApiUrl}/authcheck/`, {
+                const response = await axios.get(`${ApiUrl}/authcheck`, {
                   withCredentials: true
                 })
 
-                if (response.status == 200) {
+                if (response.status == 204) {
                     setIsAuthenticated(true)
                 } else {
                     setIsAuthenticated(false)
