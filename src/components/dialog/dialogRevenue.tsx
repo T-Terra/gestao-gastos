@@ -74,6 +74,7 @@ export default function DialogRevenue() {
                                         className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" 
                                         type="number"
                                         placeholder="R$100,00"
+                                        step="any"
                                     />
                                 </div>
                             </div>

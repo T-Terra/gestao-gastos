@@ -62,8 +62,9 @@ export default function Home() {
                         <div className="grid gap-1 p-5 text-2xl font-semibold">
                             <label className="text-[15px] font-normal">Saldo Atual</label>
                             <label>
-                                {
-                                    formatAmount(handlerCurrentCost().toString())
+                                { localRevenue
+                                   ? formatAmount(handlerCurrentCost().toString())
+                                   : "R$0,00"
                                 }
                             </label>
                         </div>
