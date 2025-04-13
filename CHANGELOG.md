@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.26](https://github.com/T-Terra/gestao-gastos/compare/v0.1.25...v0.1.26) (2025-04-13)
+
+
+### Features
+
+* add protected routes ([59b6384](https://github.com/T-Terra/gestao-gastos/commit/59b6384f9acb0a560ab7b0c2bf8edc62c25cf51d))
+
 ### [0.1.25](https://github.com/T-Terra/gestao-gastos/compare/v0.1.24...v0.1.25) (2025-04-13)
 
 
