@@ -4,7 +4,8 @@ import {
     HandCoins,
     ChevronRight,
     ChevronLeft,
-    List
+    List,
+    LogOut
 } from "lucide-react"
 import { Button } from "../buttons/button"
 import IconStyles from "../buttons/IconStyles"
@@ -12,6 +13,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import DialogRevenue from "../dialog/dialogRevenue"
 import { ToolTip } from "../tooltips/tooltip"
+import Logout from "../dialog/logout"
 
 
 export default function NavBar() {
@@ -40,6 +42,13 @@ export default function NavBar() {
             >
                 <div className="text-gray-100">
                     <ul className="flex flex-col gap-8 items-center my-35">
+                        <li>
+                            <ToolTip nameToolTip="Sair do sistema.">
+                                <Logout>
+                                    <LogOut size={sizeIcons}/>
+                                </Logout>
+                            </ToolTip>
+                        </li>
                         <li>
                             <ToolTip nameToolTip="Insira a receita atual.">
                                 <DialogRevenue />
