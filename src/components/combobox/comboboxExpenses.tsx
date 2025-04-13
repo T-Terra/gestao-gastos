@@ -27,7 +27,7 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
 
     useEffect(() => {
         const getData = async () => {
-            const response = await axios.get(`${apiUrl}/category`)
+            const response = await axios.get(`${apiUrl}/category`, {withCredentials: true})
             const categoryObjs: CategoryInterface[] = response.data
             setCategory(categoryObjs)
         };
