@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.27](https://github.com/T-Terra/gestao-gastos/compare/v0.1.26...v0.1.27) (2025-04-13)
+
+
+### Bug Fixes
+
+* request get category add withcredentials ([61ee1fc](https://github.com/T-Terra/gestao-gastos/commit/61ee1fc162e704f39232a36c217fee657ad868a8))
+
 ### [0.1.26](https://github.com/T-Terra/gestao-gastos/compare/v0.1.25...v0.1.26) (2025-04-13)
 
 
