@@ -9,7 +9,7 @@ export function useUpdateTokens() {
 
         const checkUpdate = async () => {
             try {
-                await axios.post(`${ApiUrl}/refresh-token`, {
+                await axios.post(`${ApiUrl}/refresh-token`, {}, {
                     withCredentials: true
                 })
                 
@@ -20,7 +20,7 @@ export function useUpdateTokens() {
 
         const interval = setInterval(() => {
             checkUpdate()
-        }, 60 * 3000)
+        }, 35 * 1000)
 
         return () => clearInterval(interval)
 
