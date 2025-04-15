@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.28](https://github.com/T-Terra/gestao-gastos/compare/v0.1.27...v0.1.28) (2025-04-15)
+
+
+### Features
+
+* add interval 35 seconds to update tokens ([fd795a6](https://github.com/T-Terra/gestao-gastos/commit/fd795a6bd1e6eb7b41239dfe49c8cc6be91cd03d))
+
 ### [0.1.27](https://github.com/T-Terra/gestao-gastos/compare/v0.1.26...v0.1.27) (2025-04-13)
 
 
