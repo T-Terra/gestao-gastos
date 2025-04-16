@@ -38,7 +38,7 @@ export default function DialogExpenses() {
 
             if (response.status === 201) {
                 const newExpense = response.data
-                setExpenses(prev => [...prev, newExpense])
+                setExpenses(prev => Array.isArray(prev) ? [...prev, newExpense] : [newExpense])
             }
             setCategory("")
         }

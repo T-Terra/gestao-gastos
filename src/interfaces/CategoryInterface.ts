@@ -1,5 +1,5 @@
 export interface CategoryInterface {
-    NameCategory: string
+    nameCategory: string
     DescriptionCategory: string
 }
 

@@ -25,7 +25,7 @@ export default function DialogCategory() {
     const apiUrl: string = import.meta.env.VITE_API_URL
 
     const saveData = async (data: CategoryInterface) => {
-        if (data.NameCategory === "" && data.DescriptionCategory === "") {
+        if (data.nameCategory === "" && data.DescriptionCategory === "") {
             alert("Dados vazios não são salvos")
         } else {
             const response = await axios.post(`${apiUrl}/category`, JSON.stringify(data), {
@@ -34,7 +34,7 @@ export default function DialogCategory() {
             })
 
             if (response.status === 201 || response.status === 200) {
-                setCategories((prev) => [...prev, response.data])
+                setCategories((prev) => Array.isArray(prev) ? [...prev, response.data] : [response.data])
             }
         }
     }
@@ -44,7 +44,7 @@ export default function DialogCategory() {
         const description = formData.get('description') as string
 
         const arrayObj: CategoryInterface = {
-            "NameCategory": categoryName,
+            "nameCategory": categoryName,
             "DescriptionCategory": description
         }
 
