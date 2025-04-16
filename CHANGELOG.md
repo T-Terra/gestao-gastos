@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.30](https://github.com/T-Terra/gestao-gastos/compare/v0.1.29...v0.1.30) (2025-04-16)
+
+
+### Bug Fixes
+
+* deploy and improve dialogs ([d045c85](https://github.com/T-Terra/gestao-gastos/commit/d045c850755ff199751b52a9888408bda53400c9))
+* deploy build ([4bb677d](https://github.com/T-Terra/gestao-gastos/commit/4bb677d7d421632e988b175dcefb62229318db96))
+* deploy typescript types ([f6059bc](https://github.com/T-Terra/gestao-gastos/commit/f6059bca9ba9fd9791af42228269ea81778778e4))
+
 ### [0.1.29](https://github.com/T-Terra/gestao-gastos/compare/v0.1.28...v0.1.29) (2025-04-16)
 
 
