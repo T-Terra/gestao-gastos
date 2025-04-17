@@ -1,6 +1,7 @@
 import FormLogin from "../components/forms/formLogin"
 import { useNavigate } from "react-router"
 import { LoginInterface } from "@/interfaces/LoginInterface"
+import { ShowToastSuccess, ShowToastError } from "@/components/toast/toastFunctions"
 import axios from "axios"
 
 export default function Login() {
@@ -18,8 +19,11 @@ export default function Login() {
             })
 
             if (response.status === 200) {
+                ShowToastSuccess("Login realizado com sucesso!")
                 navigate('/home')
                 localStorage.setItem("username", response.data['username'])
+            } else {
+                ShowToastError("Erro!")
             }
         }
     }

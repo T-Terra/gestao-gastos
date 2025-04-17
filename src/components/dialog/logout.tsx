@@ -11,6 +11,7 @@ import { Button } from '@/components/buttons/button'
 import { useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router"
+import { ShowToastSuccess, ShowToastError } from "@/components/toast/toastFunctions"
 
 type props = {
     children: React.ReactNode
@@ -25,7 +26,10 @@ export default function Logout({ children }: props) {
         const response = await axios.post(`${apiUrl}/logout`, {},{withCredentials: true})
 
         if (response.status === 200) { 
+            ShowToastSuccess("Logout realizado!")
             navigate("/")
+        } else {
+            ShowToastError("Erro!")
         }
         setOpen(false)
     }
