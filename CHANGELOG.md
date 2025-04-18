@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.33](https://github.com/T-Terra/gestao-gastos/compare/v0.1.32...v0.1.33) (2025-04-18)
+
+
+### Features
+
+* update layout responsive ([ec3a8e9](https://github.com/T-Terra/gestao-gastos/commit/ec3a8e995a83c26c99a6942c5d1aafb1539cb0f3))
+
 ### [0.1.32](https://github.com/T-Terra/gestao-gastos/compare/v0.1.31...v0.1.32) (2025-04-18)
 
 
