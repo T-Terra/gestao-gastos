@@ -23,13 +23,13 @@ export default function Category() {
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
-            <div className="w-[400px] py-13">
+            <div className="lg:w-[400px] w-[200px] py-13">
                 <User />
             </div>
-            <div className="w-full text-gray-100 flex flex-col gap-8 items-center">
-                <div  className="w-[1100px] flex justify-between">
+            <div className="w-full text-gray-100 lg:flex lg:flex-col grid gap-8 items-center">
+                <div  className="lg:w-[1100px] w-[400px] lg:flex lg:justify-between grid lg:ml-0 ml-12">
                     <div>
-                        <h1 className="font-semibold text-4xl">
+                        <h1 className="font-semibold lg:text-4xl text-2xl lg:m-0 m-3">
                             Categoria
                         </h1>
                     </div>
@@ -38,7 +38,9 @@ export default function Category() {
                     </div>
                 </div>
                 {/* div list expenses */}
-                <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} />
+                <div className="lg:ml-0 ml-1">
+                    <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} />
+                </div>
             </div>
         </div>
     )

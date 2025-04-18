@@ -49,16 +49,16 @@ export default function Home() {
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end">
-            <div className="w-[400px] py-13 xs:ml-5">
+            <div className="lg:w-[400px] w-[200px] py-13 xs:ml-5">
                 <User />
             </div>
             <div className="w-full text-gray-100 lg:flex flex-col gap-8 items-center">
                 <div  className="w-[1500px] flex justify-between">
-                    <h1 className="font-semibold text-4xl xs:m-5">
+                    <h1 className="font-semibold lg:text-4xl text-2xl lg:m-0 m-3 xs:m-5">
                         Dashboard
                     </h1>
                 </div>
-                <div className="lg:flex flex-wrap gap-5">
+                <div className="lg:flex flex-wrap lg:ml-0 ml-6 gap-5">
                     <Card 
                         label="Saldo Atual" 
                         icon={<Banknote size={30}/>} 
@@ -99,11 +99,11 @@ export default function Home() {
                         styleIcon="bg-emerald-800 rounded-full p-2"
                     />
                 </div>
-                <div className="w-full text-gray-100 flex justify-center">
-                    <div className="w-[700px]">
+                <div className="w-full text-gray-100 flex justify-center lg:flex flex-wrap">
+                    <div className="xs:w-[700px] w-[300px]">
                         <Chart title="Despesas por Categoria" />
                     </div>
-                    <div className="w-[700px]">
+                    <div className="xs:w-[700px] w-[300px]">
                         <Chart title="Receitas por Categoria" />
                     </div>
                 </div>

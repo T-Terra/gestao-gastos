@@ -40,13 +40,13 @@ export default function Expenses() {
 
     return (
         <div className="bg-gray-900 h-screen w-screen flex flex-col items-end py-6">
-            <div className="w-[400px]">
+            <div className="lg:w-[400px] w-[200px]">
                 <User />
             </div>
-            <div className="w-full text-gray-100 flex flex-col gap-3 items-center">
-                <div  className="w-[1100px] flex justify-between">
+            <div className="w-full text-gray-100 lg:flex lg:flex-col grid gap-3 lg:items-center">
+                <div  className="lg:w-[1100px] w-[400px] lg:flex lg:justify-between grid lg:ml-0 ml-12">
                     <div>
-                        <h1 className="font-semibold text-4xl">
+                        <h1 className="font-semibold lg:text-4xl text-2xl lg:mb-0 mb-2">
                             Despesas
                         </h1>
                     </div>
@@ -54,7 +54,7 @@ export default function Expenses() {
                         <DialogExpenses />
                     </div>
                 </div>
-                <div className="lg:flex flex-wrap gap-5">
+                <div className="lg:flex flex-wrap lg:ml-0 ml-6 gap-5">
                     <Card 
                         label="Despesas pendentes" 
                         icon={<ArrowUp size={30}/>} 
@@ -80,7 +80,9 @@ export default function Expenses() {
                     />
                 </div>
                 {/* div list expenses */}
-                <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} />
+                <div className="lg:ml-0 ml-1">
+                    <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Ação']} />
+                </div>
             </div>
         </div>
     )

@@ -58,7 +58,7 @@ export default function CategoryTable({ col }: props) {
     }
 
     return (
-        <div className="w-[900px] text-gray-100 bg-gray-800 p-5 rounded-2xl shadow-lg">
+        <div className="lg:w-[900px] w-[300px] text-gray-100 bg-gray-800 p-5 rounded-2xl shadow-lg">
             <Table>
                 <TableCaption></TableCaption>
                 <TableHeader>

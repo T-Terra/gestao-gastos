@@ -57,7 +57,7 @@ export default function DialogCategory() {
                 <DialogTrigger asChild>
                     <div className="flex">
                         <Button 
-                            style="bg-gray-800 p-4 rounded-3xl shadow-lg flex gap-1 hover:bg-gray-700" 
+                            style="bg-gray-800 lg:p-4 p-2 lg:text-[15px] text-[12px] rounded-3xl shadow-lg flex gap-1 hover:bg-gray-700" 
                             type="button"
                             onClick={() => setOpen(true)}
                         >
