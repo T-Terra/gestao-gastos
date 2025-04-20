@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.33](https://github.com/T-Terra/gestao-gastos/compare/v0.1.32...v0.1.33) (2025-04-18)
+
+
+### Features
+
+* update layout responsive ([ec3a8e9](https://github.com/T-Terra/gestao-gastos/commit/ec3a8e995a83c26c99a6942c5d1aafb1539cb0f3))
+
+### [0.1.32](https://github.com/T-Terra/gestao-gastos/compare/v0.1.31...v0.1.32) (2025-04-18)
+
+
+### Features
+
+* add responsive layout home and expenses partial ([b231732](https://github.com/T-Terra/gestao-gastos/commit/b23173213959e8fe156883efb2ae9b7c07d054f6))
+
+### [0.1.31](https://github.com/T-Terra/gestao-gastos/compare/v0.1.30...v0.1.31) (2025-04-17)
+
+
+### Features
+
+* add toast message component ([07e870c](https://github.com/T-Terra/gestao-gastos/commit/07e870c8046ac202e581cd82241aff4f7cdd775f))
+
 ### [0.1.30](https://github.com/T-Terra/gestao-gastos/compare/v0.1.29...v0.1.30) (2025-04-16)
 
 
