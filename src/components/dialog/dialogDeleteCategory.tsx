@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/buttons/button'
 import { useState } from "react"
 import { useCategory } from "@/contexts/categoryContext"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 type props = {
@@ -32,6 +33,9 @@ export default function DialogDeleteCategory({ indexRow, children }: props) {
                 // remove da listagem
                 const newObjList = categories.filter((item, indexId) => indexId !== index).reverse()
                 setCategories(newObjList)
+                ShowToastSuccess("Categoria deletada!")
+            } else {
+                ShowToastError(`Erro ao deletar categoria! code: ${response.status}`)
             }
             setOpen(false)
         }

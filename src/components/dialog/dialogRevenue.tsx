@@ -15,6 +15,7 @@ import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
 import { useState } from "react"
 import { RevenueInterface } from "@/interfaces/RevenueInterface"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 
@@ -31,6 +32,12 @@ export default function DialogRevenue() {
                 headers: {"Content-Type": "application/json"},
                 withCredentials: true
             })
+
+            if(response.status === 201) {
+                ShowToastSuccess("Receita atual atualizada!")
+            } else {
+                ShowToastError(`Erro ao atualizar receita! code ${response.status}`)
+            }
         }
     }
 

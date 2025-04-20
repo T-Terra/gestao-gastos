@@ -17,6 +17,7 @@ import { Input } from "../ui/input"
 import { useState } from "react"
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { useExpenses } from "@/contexts/expensesContext"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 
@@ -39,6 +40,9 @@ export default function DialogExpenses() {
             if (response.status === 201) {
                 const newExpense = response.data
                 setExpenses(prev => Array.isArray(prev) ? [...prev, newExpense] : [newExpense])
+                ShowToastSuccess("Despesa criada!")
+            } else {
+                ShowToastError(`Erro ao criar despesa! code ${response.status}`)
             }
             setCategory("")
         }
