@@ -8,5 +8,5 @@ export interface SetStateInterface {
 }
 
 export interface SetStateComboboxInterface {
-    setState: (data: string) => void
+    setState: React.Dispatch<React.SetStateAction<string>>
 }

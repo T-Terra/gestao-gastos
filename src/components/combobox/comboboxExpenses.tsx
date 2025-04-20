@@ -11,15 +11,15 @@ Popover,
 PopoverContent,
 PopoverTrigger,
 } from "@/components/ui/popover"
-import { CategoryInterface, SetStateComboboxInterface } from "@/interfaces/CategoryInterface"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import { cn } from "@/lib/utils"
 import { ChevronsUpDown, Check } from 'lucide-react'
 import { Button } from "../ui/button"
 import { useEffect, useState } from "react"
 import axios from "axios"
-   
 
-export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface) {
+
+export default function ComboBoxExpenses({setState, editCategory}) {
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState("")
     const [categories, setCategory] = useState<CategoryInterface[]>([])
@@ -33,7 +33,14 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
         };
 
         getData()
+        checkCategoryDad()
    }, [])
+
+   const checkCategoryDad = () => {
+        if(editCategory !== "") {
+            setValue(editCategory)
+        }
+    }
 
     return (
         <div>
@@ -45,9 +52,11 @@ export default function ComboBoxExpenses({ setState }: SetStateComboboxInterface
                         aria-expanded={open}
                         className="w-[180px] justify-between bg-gray-900 text-gray-100 hover:bg-gray-200"
                     >
-                        {value
+                        {
+                            value
                             ? categories.find((category) => category['nameCategory'] === value)?.nameCategory
-                            : "Categoria..."}
+                            : "Categoria..." 
+                        }
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                     </Button>
                 </PopoverTrigger>

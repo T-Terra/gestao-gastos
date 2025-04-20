@@ -14,8 +14,9 @@ import { Textarea } from "@/components/ui/textarea"
 import ComboBoxExpenses from "../combobox/comboboxExpenses"
 import { Button } from '@/components/buttons/button'
 import { Input } from "../ui/input"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
+import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import { useExpenses } from "@/contexts/expensesContext"
 import axios from "axios"
 
@@ -27,7 +28,31 @@ type props = {
 export default function DialogEditExpenses({ indexRow, children }: props) {
     const [isOpen, setOpen] = useState(false)
     const [category, setCategory] = useState("")
-    const { expenses, setExpenses } = useExpenses() 
+    const { expenses, setExpenses } = useExpenses()
+    const [ expensesLocal, setExpensesLocal ] = useState<(DataTableInterface | CategoryInterface)[]>([])
+    const [formData, setFormData] = useState({
+        NameExpense: "",
+        AmountExpense: "",
+        DescriptionExpense: "",
+        CategoryExpense: ""
+    })
+
+    useEffect(() => {
+        const arr = [...expenses]
+        setExpensesLocal(arr.reverse())
+    }, [])
+
+    const setData = () => {
+        const filterExpense = expensesLocal.filter((expense, indexId) => indexId === indexRow)
+
+        setFormData({
+            NameExpense: filterExpense[0]['nameExpense'],
+            AmountExpense: filterExpense[0]['amountExpense'],
+            DescriptionExpense: filterExpense[0]['descriptionExpense'],
+            CategoryExpense: filterExpense[0]['categoryExpense']
+        })
+        setCategory(filterExpense[0]['categoryExpense'])
+    }
 
     const apiUrl: string = import.meta.env.VITE_API_URL
 
@@ -76,7 +101,7 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
                     <div className="flex">
                         <Button 
                             style="p-2 flex gap-1"
-                            onClick={() => {setOpen(true)}}
+                            onClick={() => {setData()}}
                             type="button"
                         >
                             {children}
@@ -94,17 +119,22 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
                         <div className="flex flex-col gap-10 items-end">
                             <div className="w-full flex flex-col gap-4">
                                 <label>Nome da Despesa</label>
-                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="name" type="text" placeholder="Internet, Conta de Luz..."/>
+                                <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="name" type="text" placeholder="Internet, Conta de Luz..." value={formData.NameExpense} 
+                                onChange={(e) => setFormData({...formData, NameExpense: e.target.value})}/>
 
                                 <label>Valor da Despesa</label>
                                 <div className="flex items-center gap-1">
                                     <span className="font-semibold">R$</span>
-                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" type="number" placeholder="R$100,00" step="any"/>
+                                    <Input className="[&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" name="amount" type="number" placeholder="R$100,00" step="any" 
+                                    value={formData.AmountExpense}
+                                    onChange={(e) => setFormData({...formData, AmountExpense: e.target.value})}/>
                                 </div>
                                 <label>Descrição</label>
-                                <Textarea name="description" placeholder="Descrição da despesa"/>
+                                <Textarea name="description" placeholder="Descrição da despesa" 
+                                value={formData.DescriptionExpense}
+                                onChange={(e) => setFormData({...formData, DescriptionExpense: e.target.value})}/>
                                 <label>Categoria</label>
-                                <ComboBoxExpenses setState={setCategory}/>
+                                <ComboBoxExpenses setState={setCategory} editCategory={category}/>
                             </div>
                             <div className="w-[100px] py-2">
                                 <Button 
