@@ -7,7 +7,6 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { 
-    Plus,
     SaveIcon
 } from 'lucide-react'
 
@@ -46,7 +45,10 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
 
             if (response.status === 200) {
                 const EditedExpense = response.data
-                setExpenses(prev => prev.map(expense => expense.id === EditedExpense.id ? EditedExpense : expense).reverse())
+                setExpenses(prev => 
+                    Array.isArray(prev) 
+                    ? prev.map(expense => expense.id === EditedExpense.id ? EditedExpense : expense).reverse() 
+                    : [])
             }
             setCategory("")
         }
