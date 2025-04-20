@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.37](https://github.com/T-Terra/gestao-gastos/compare/v0.1.36...v0.1.37) (2025-04-20)
+
+
+### Bug Fixes
+
+* combobox dialogexpenses without editCategory param ([a8139ae](https://github.com/T-Terra/gestao-gastos/commit/a8139ae8f173b08d2955cb1c97aa9dccab59457c))
+
 ### [0.1.36](https://github.com/T-Terra/gestao-gastos/compare/v0.1.35...v0.1.36) (2025-04-20)
 
 
