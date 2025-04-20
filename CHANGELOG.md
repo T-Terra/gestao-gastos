@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.35](https://github.com/T-Terra/gestao-gastos/compare/v0.1.34...v0.1.35) (2025-04-20)
+
+
+### Bug Fixes
+
+* prev map dialog edit expenses ([f68ac31](https://github.com/T-Terra/gestao-gastos/commit/f68ac319353d23fe75ff50da4ffb4eef3763c0e2))
+
 ### [0.1.34](https://github.com/T-Terra/gestao-gastos/compare/v0.1.33...v0.1.34) (2025-04-20)
 
 
