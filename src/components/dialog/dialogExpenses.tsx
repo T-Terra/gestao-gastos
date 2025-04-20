@@ -99,7 +99,7 @@ export default function DialogExpenses() {
                                 <label>Descrição</label>
                                 <Textarea name="description" placeholder="Descrição da despesa"/>
                                 <label>Categoria</label>
-                                <ComboBoxExpenses setState={setCategory}/>
+                                <ComboBoxExpenses setState={setCategory} editCategory={category}/>
                             </div>
                             <div className="w-[100px] py-2">
                                 <Button 
