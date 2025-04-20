@@ -11,11 +11,13 @@ import {
 import { 
     Plus,
     Minus,
-    Trash2Icon
+    Trash2Icon,
+    Pencil
 } from 'lucide-react'
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import DialogDeleteExpenses from "../dialog/dialogDeleteExpense"
+import DialogEditExpenses from "../dialog/dialogEditExpense"
 import { useExpenses } from "@/contexts/expensesContext"
 import { converData, formatAmount } from "@/utils/formaters"
 
@@ -53,6 +55,11 @@ export default function PaginatedTable({ col }: props) {
                         }
                     </TableCell>
                 )).slice(1)}
+                <TableCell className="p-0">
+                    <DialogEditExpenses indexRow={rowIndex}>
+                        <Pencil className="cursor-pointer text-indigo-500 hover:text-indigo-700" />
+                    </DialogEditExpenses>
+                </TableCell>
                 <TableCell className="p-0">
                     <DialogDeleteExpenses indexRow={rowIndex}>
                         <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />
