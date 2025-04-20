@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.36](https://github.com/T-Terra/gestao-gastos/compare/v0.1.35...v0.1.36) (2025-04-20)
+
+
+### Features
+
+* add toasts in dialogs ([31b9f7d](https://github.com/T-Terra/gestao-gastos/commit/31b9f7d5b1ed7d1d0cbae43bf4c60e77eb023b19))
+
 ### [0.1.35](https://github.com/T-Terra/gestao-gastos/compare/v0.1.34...v0.1.35) (2025-04-20)
 
 
