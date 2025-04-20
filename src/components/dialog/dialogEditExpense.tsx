@@ -18,6 +18,7 @@ import { useState, useEffect } from "react"
 import { DataTableInterface } from "@/interfaces/DataTableInterfaces"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import { useExpenses } from "@/contexts/expensesContext"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 type props = {
@@ -74,6 +75,9 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
                     Array.isArray(prev) 
                     ? prev.map(expense => expense.id === EditedExpense.id ? EditedExpense : expense).reverse() 
                     : [])
+                ShowToastSuccess("Editado com sucesso!")
+            } else {
+                ShowToastError(`Erro ao editar! code: ${response.status}`)
             }
             setCategory("")
         }

@@ -16,6 +16,7 @@ import { Input } from "../ui/input"
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import { useCategory } from "@/contexts/categoryContext"
 import { useState } from "react"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 export default function DialogCategory() {
@@ -35,6 +36,9 @@ export default function DialogCategory() {
 
             if (response.status === 201 || response.status === 200) {
                 setCategories((prev) => Array.isArray(prev) ? [...prev, response.data] : [response.data])
+                ShowToastSuccess("Categoria criada com sucesso!")
+            } else {
+                ShowToastError(`Erro ao criar categoria! code ${response.status}`)
             }
         }
     }

@@ -10,6 +10,7 @@ import {
 import { Button } from '@/components/buttons/button'
 import { useState } from "react"
 import { useExpenses } from "@/contexts/expensesContext"
+import { ShowToastSuccess, ShowToastError } from "../toast/toastFunctions"
 import axios from "axios"
 
 type props = {
@@ -32,6 +33,9 @@ export default function DialogDeleteExpenses({ indexRow, children }: props) {
                 // remove da listagem
                 const newObjList = expenses.filter((item, indexId) => indexId !== index).reverse()
                 setExpenses(newObjList)
+                ShowToastSuccess("Despesa deletada!")
+            } else {
+                ShowToastError(`Erro ao deletar despesa! code ${response.status}`)
             }
             setOpen(false)
         }
