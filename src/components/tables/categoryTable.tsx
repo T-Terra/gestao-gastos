@@ -11,12 +11,14 @@ import {
 import { 
     Plus,
     Minus,
-    Trash2Icon
+    Trash2Icon,
+    Pencil
 } from 'lucide-react'
 import { CategoryInterface } from "@/interfaces/CategoryInterface"
 import DialogDeleteCategory from "../dialog/dialogDeleteCategory"
 import { converData } from "@/utils/formaters"
 import { useCategory } from "@/contexts/categoryContext"
+import DialogEditCategory from "../dialog/dialogEditCategory"
 
 type props = {
     col: string[]
@@ -48,6 +50,11 @@ export default function CategoryTable({ col }: props) {
                         }
                     </TableCell>
                 )).slice(1)}
+                <TableCell className="p-0">
+                    <DialogEditCategory indexRow={rowIndex}>
+                        <Pencil className="cursor-pointer text-indigo-500 hover:text-indigo-700" />
+                    </DialogEditCategory>
+                </TableCell>
                 <TableCell className="p-0">
                     <DialogDeleteCategory indexRow={rowIndex}>
                         <Trash2Icon className="cursor-pointer text-red-500 hover:text-red-700" />

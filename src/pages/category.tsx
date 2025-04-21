@@ -39,7 +39,7 @@ export default function Category() {
                 </div>
                 {/* div list expenses */}
                 <div className="lg:ml-0 ml-1">
-                    <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Ação']} />
+                    <CategoryTable col={['Nome da Categoria', 'Descrição', 'Data Criação', 'Editar', 'Deletar']} />
                 </div>
             </div>
         </div>
