@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.38](https://github.com/T-Terra/gestao-gastos/compare/v0.1.37...v0.1.38) (2025-04-21)
+
+
+### Features
+
+* add edit route and front button edit ([8737d4e](https://github.com/T-Terra/gestao-gastos/commit/8737d4e5e6304c2ba647a68c0ee3a8868b22b728))
+* add version project in navbar ([9b5b57c](https://github.com/T-Terra/gestao-gastos/commit/9b5b57cb7fa0ccfeb7d7942c0c519a213dd41ccf))
+
 ### [0.1.37](https://github.com/T-Terra/gestao-gastos/compare/v0.1.36...v0.1.37) (2025-04-20)
 
 
