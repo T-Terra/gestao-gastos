@@ -14,6 +14,7 @@ import { motion } from "framer-motion"
 import DialogRevenue from "../dialog/dialogRevenue"
 import { ToolTip } from "../tooltips/tooltip"
 import Logout from "../dialog/logout"
+import VersionApp from "../versionApp/versionApp"
 
 
 export default function NavBar() {
@@ -40,7 +41,7 @@ export default function NavBar() {
                 transition={{ duration: 0.5, ease: "backInOut" }}
                 className="bg-gray-800 text-gray-100 overflow-hidden"
             >
-                <div className="text-gray-100">
+                <div className="text-gray-100 flex flex-col items-center">
                     <ul className="flex flex-col gap-8 items-center my-35">
                         <li>
                             <ToolTip nameToolTip="Sair do sistema.">
@@ -82,6 +83,9 @@ export default function NavBar() {
                             </ToolTip>
                         </li>
                     </ul>
+                    <div className="pt-55">
+                        <VersionApp />
+                    </div>
                 </div>
             </motion.div>
             <div>
