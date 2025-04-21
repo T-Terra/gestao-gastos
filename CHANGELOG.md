@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.39](https://github.com/T-Terra/gestao-gastos/compare/v0.1.38...v0.1.39) (2025-04-21)
+
+
+### Features
+
+* add favico ([b6b384e](https://github.com/T-Terra/gestao-gastos/commit/b6b384eff215e31a74ef7db8801be8fafcee11cd))
+
 ### [0.1.38](https://github.com/T-Terra/gestao-gastos/compare/v0.1.37...v0.1.38) (2025-04-21)
 
 
