@@ -92,7 +92,7 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
             "NameExpense": name,
             "AmountExpense": amount,
             "DescriptionExpense": description,
-            "categoryId": category['categoryId'],
+            "categoryId": category['id'],
         }
         
         saveData(expense, indexRow)
