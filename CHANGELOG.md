@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.41](https://github.com/T-Terra/gestao-gastos/compare/v0.1.40...v0.1.41) (2025-05-01)
+
+
+### Features
+
+* add name category in expenses and update if category name updated ([ef0d5a0](https://github.com/T-Terra/gestao-gastos/commit/ef0d5a08f4ad1d999851dd5721560cfc9b2118ff))
+* chore and improve code to relational category with expenses ([128d35b](https://github.com/T-Terra/gestao-gastos/commit/128d35b0adc619954aa53976e99180a86162d572))
+
 ### [0.1.40](https://github.com/T-Terra/gestao-gastos/compare/v0.1.39...v0.1.40) (2025-04-23)
 
 
