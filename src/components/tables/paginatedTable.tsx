@@ -45,7 +45,7 @@ export default function PaginatedTable({ col }: props) {
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium text-[16px] p-3">
                         {
-                            colIndex === 6
+                            colIndex === 4
                             ? converData(value) 
                             : value 
                             &&
@@ -54,7 +54,7 @@ export default function PaginatedTable({ col }: props) {
                             : value
                         }
                     </TableCell>
-                )).slice(1).filter((index) => index.key !== "5")}
+                )).slice(1)}
                 <TableCell className="p-0">
                     <DialogEditExpenses indexRow={rowIndex}>
                         <Pencil className="cursor-pointer text-indigo-500 hover:text-indigo-700" />

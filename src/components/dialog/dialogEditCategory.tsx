@@ -54,7 +54,7 @@ export default function DialogEditCategory({ indexRow, children }: props) {
             alert("Dados vazios não são salvos")
         } else {
             const filterCategory = categories.reverse().filter((category, indexId) => indexId === index)
-            const categoryId = filterCategory[0]['categoryId']
+            const categoryId = filterCategory[0]['id']
 
             const response = await axios.put(`${apiUrl}/category/${categoryId}`, JSON.stringify(data), {
                 headers: {"Content-Type": "application/json"},
@@ -65,7 +65,7 @@ export default function DialogEditCategory({ indexRow, children }: props) {
                 const EditedCategory = response.data
                 setCategories(prev => 
                     Array.isArray(prev)
-                    ? prev.map(category => category.categoryId === EditedCategory.categoryId ? EditedCategory : category).reverse()
+                    ? prev.map(category => category.id === EditedCategory.id ? EditedCategory : category).reverse()
                     : []
                 )
                 ShowToastSuccess("Categoria Editada com sucesso!")

@@ -81,7 +81,7 @@ export default function Expenses() {
                 </div>
                 {/* div list expenses */}
                 <div className="lg:ml-0 ml-1">
-                    <TableList col={['Nome', 'valor', 'Descrição', 'Categoria', 'Data criação', 'Editar', 'Deletar']} />
+                    <TableList col={['Nome', 'valor', 'Descrição', 'Data criação', 'Categoria', 'Editar', 'Deletar']} />
                 </div>
             </div>
         </div>

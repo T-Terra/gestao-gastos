@@ -72,7 +72,7 @@ export default function ComboBoxExpenses({setState, editCategory}) {
                                         value={category['nameCategory']}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
-                                            setState(categories.find((category) => category['nameCategory'] === currentValue))
+                                            setState(category)
                                             setOpen(false)
                                         }}
                                     >
