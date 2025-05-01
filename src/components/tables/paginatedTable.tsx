@@ -45,7 +45,7 @@ export default function PaginatedTable({ col }: props) {
                 {Object.values(obj).map((value, colIndex) => (
                     <TableCell key={colIndex} className="font-medium text-[16px] p-3">
                         {
-                            colIndex === 5 
+                            colIndex === 4
                             ? converData(value) 
                             : value 
                             &&

@@ -37,7 +37,7 @@ export default function ComboBoxExpenses({setState, editCategory}) {
    }, [])
 
    const checkCategoryDad = () => {
-        if(editCategory !== "") {
+        if(editCategory !== "" || editCategory !== null) {
             setValue(editCategory)
         }
     }
@@ -72,7 +72,7 @@ export default function ComboBoxExpenses({setState, editCategory}) {
                                         value={category['nameCategory']}
                                         onSelect={(currentValue) => {
                                             setValue(currentValue === value ? "" : currentValue)
-                                            setState(currentValue === value ? "" : currentValue)
+                                            setState(category)
                                             setOpen(false)
                                         }}
                                     >
