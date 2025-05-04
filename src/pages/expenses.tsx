@@ -4,7 +4,7 @@ import {
     ArrowUp
 } from 'lucide-react'
 import User from '@/components/user/user'
-import TableList from '@/components/tables/table'
+import PaginatedTable from '@/components/tables/paginatedTable'
 import DialogExpenses from '@/components/dialog/dialogExpenses'
 import { useEffect, useState } from 'react'
 import { useExpenses } from '@/contexts/expensesContext'
@@ -81,7 +81,7 @@ export default function Expenses() {
                 </div>
                 {/* div list expenses */}
                 <div className="lg:ml-0 ml-1">
-                    <TableList col={['Nome', 'valor', 'Descrição', 'Data criação', 'Categoria', 'Editar', 'Deletar']} />
+                    <PaginatedTable col={['Nome', 'valor', 'Descrição', 'Data criação', 'Categoria', 'Editar', 'Deletar']} />
                 </div>
             </div>
         </div>
