@@ -59,8 +59,9 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
             categoryName: filterExpense[0]['categoryName']
         })
         setCategory(filterExpense[0]['categoryName'])
-        if (filterExpense[0]?.categoryId !== undefined && filterExpense[0]?.categoryId !== null) {
-            localStorage.setItem("CategoryId", filterExpense[0]?.categoryId)
+
+        if (filterExpense[0]['categoryId'] !== undefined && filterExpense[0]['categoryId']  !== null)  {
+            localStorage.setItem("CategoryId", filterExpense[0]['categoryId'])
         }
     }
 

@@ -57,7 +57,7 @@ export default function DialogExpenses() {
             "NameExpense": name,
             "AmountExpense": amount,
             "DescriptionExpense": description,
-            "categoryId": category['id']
+            "CategoryId": category['id']
         }
 
         saveData(expense)
