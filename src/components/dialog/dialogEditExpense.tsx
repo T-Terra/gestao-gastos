@@ -35,24 +35,33 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
         NameExpense: "",
         AmountExpense: "",
         DescriptionExpense: "",
-        CategoryExpense: ""
+        categoryName: ""
     })
+
+    const filterExpense = expensesLocal.filter((expense, indexId) => indexId === indexRow)
 
     useEffect(() => {
         const arr = [...expenses]
         setExpensesLocal(arr.reverse())
     }, [])
 
-    const setData = () => {
-        const filterExpense = expensesLocal.filter((expense, indexId) => indexId === indexRow)
+    useEffect(() => {
+        if (category['id']) {
+            localStorage.setItem("CategoryId", category['id'])
+        }
+    }, [category])
 
+    const setData = () => {
         setFormData({
             NameExpense: filterExpense[0]['nameExpense'],
             AmountExpense: filterExpense[0]['amountExpense'],
             DescriptionExpense: filterExpense[0]['descriptionExpense'],
-            CategoryExpense: filterExpense[0]['categoryExpense']
+            categoryName: filterExpense[0]['categoryName']
         })
-        setCategory(filterExpense[0]['categoryExpense'])
+        setCategory(filterExpense[0]['categoryName'])
+        if (filterExpense[0]?.categoryId !== undefined && filterExpense[0]?.categoryId !== null) {
+            localStorage.setItem("CategoryId", filterExpense[0]?.categoryId)
+        }
     }
 
     const apiUrl: string = import.meta.env.VITE_API_URL
@@ -88,14 +97,17 @@ export default function DialogEditExpenses({ indexRow, children }: props) {
         const amount = formData.get("amount") as string 
         const description = formData.get("description") as string
 
-        const expense: DataTableInterface = {
-            "NameExpense": name,
-            "AmountExpense": amount,
-            "DescriptionExpense": description,
-            "categoryId": category['id'],
-        }
-        
-        saveData(expense, indexRow)
+        try {
+            const expense: DataTableInterface = {
+                "NameExpense": name,
+                "AmountExpense": amount,
+                "DescriptionExpense": description,
+                "CategoryId": localStorage.getItem("CategoryId")
+            }
+            saveData(expense, indexRow)
+        } catch {
+            ShowToastError(`Erro categoryId`)
+        } 
     }
 
     return (
